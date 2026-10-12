@@ -1,5 +1,6 @@
 export type Principle = {
   number: string;
+  tag: string;
   title: string;
   body: string;
   badge: "coral" | "aqua" | "terracotta";
@@ -8,38 +9,44 @@ export type Principle = {
 export const principles: Principle[] = [
   {
     number: "01",
+    tag: "Discovery",
     title: "Direct conversation.",
-    body: "Tell us about the bottleneck you're dealing with. We start with a practical, honest review of where custom software or AI makes financial and technical sense.",
+    body: "No sales pitches or slide decks. We start with an honest conversation about your bottlenecks to see where custom software or AI makes practical, financial sense.",
     badge: "coral",
   },
   {
     number: "02",
-    title: "Understand your daily workflow.",
-    body: "We look closely at how your team actually works. Together, we explore your existing spreadsheets, APIs, databases, and daily habits to find where automation saves real time.",
+    tag: "Workflow audit",
+    title: "Map your daily workflow.",
+    body: "We look closely at how your team actually works. Together, we identify where hours are lost to repetitive tasks, messy spreadsheets, and disconnected tools.",
     badge: "aqua",
   },
   {
     number: "03",
-    title: "Shape a tight, focused scope.",
-    body: "We define the core problem, system architecture, and clear deliverables. We keep scopes tight so you see working software within weeks rather than months.",
+    tag: "Prototype in weeks",
+    title: "Tight, high-impact scope.",
+    body: "No six-month discovery phases. We define a lean, focused prototype with clear deliverables so you can test working software in weeks, not quarters.",
     badge: "terracotta",
   },
   {
     number: "04",
-    title: "Build, test, and iterate.",
-    body: "We build with real data and share working demos early. Your team gets hands-on access right away, providing rapid feedback before anything goes to production.",
+    tag: "Hands-on testing",
+    title: "Build and test with real data.",
+    body: "We build with your actual data and share early demos. Your team gets hands-on access right away, letting us iterate rapidly on real-world feedback.",
     badge: "coral",
   },
   {
     number: "05",
-    title: "Integrate into everyday tools.",
-    body: "We deploy directly into your existing infrastructure — cloud services, databases, or internal dashboards — complete with clear docs and straightforward handoffs.",
+    tag: "Plug & play",
+    title: "Seamless tool integration.",
+    body: "We deploy directly into your existing infrastructure — cloud databases, internal dashboards, or team tools — complete with clean docs and no friction.",
     badge: "aqua",
   },
   {
     number: "06",
+    tag: "Ongoing partnership",
     title: "Direct support after launch.",
-    body: "Shipping is just milestone one. We monitor performance, handle edge cases, and evolve the tool as your team's workload and data expand.",
+    body: "Shipping is just day one. We stay close to monitor performance, handle edge cases, and evolve the tool as your workload and team grow.",
     badge: "terracotta",
   },
 ];
