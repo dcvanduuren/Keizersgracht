@@ -7,36 +7,40 @@ import { TeamDots } from "@/components/ui/team-dots";
 import { team, type TeamMember } from "@/data/team";
 
 function TeamCard({ member }: { member: TeamMember }) {
+  const { heightShare, offsetShare } = member.crop;
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-card-lg border border-border-subtle bg-canvas shadow-card transition-all duration-200 hover:shadow-lg">
-      {/* Full-bleed square portrait photo at top, matching hero styling */}
-      <div className="relative aspect-square w-full overflow-hidden border-b border-border-subtle bg-canvas">
-        <Image
-          src={member.photo}
-          alt={member.photoAlt}
-          fill
-          sizes="(min-width: 1024px) 340px, (min-width: 640px) 50vw, 100vw"
-          className="object-cover"
-        />
-      </div>
-      <div className="flex flex-1 flex-col justify-between gap-4 p-5">
-        <div className="flex flex-col gap-2">
-          <div className="flex items-center justify-between gap-2">
-            <h3 className="font-display text-[20px] font-bold tracking-name text-espresso">{member.name}</h3>
-            <Badge variant="link">
-              <Asset name="icon-linkedin" width={10} height={10} />
-              LinkedIn
-            </Badge>
-          </div>
-          <p
-            className={`font-body text-badge font-semibold tracking-badge-caps uppercase ${
-              member.disciplineTone === "coral" ? "text-coral" : "text-terracotta"
-            }`}
-          >
-            {member.discipline}
-          </p>
-          <p className="font-body text-body-sm leading-[1.65] text-terracotta">{member.bio}</p>
+    <article className="flex flex-col overflow-hidden rounded-card-lg border border-border-subtle bg-canvas shadow-card">
+      {/* Reproduces the Figma crop (stretch + crop transform) at the original 435:360 ratio. */}
+      <div className="relative aspect-[435/360] w-full overflow-hidden border-b border-border-subtle">
+        <div
+          className="absolute left-0 w-full"
+          style={{ height: `${100 / heightShare}%`, top: `${(-offsetShare / heightShare) * 100}%` }}
+        >
+          <Image
+            src={member.photo}
+            alt={member.photoAlt}
+            fill
+            sizes="(min-width: 768px) 436px, 100vw"
+            className="object-fill"
+          />
         </div>
+      </div>
+      <div className="flex flex-col gap-3 p-5">
+        <div className="flex items-center justify-between gap-3">
+          <h3 className="font-display text-h3 font-bold tracking-name text-espresso">{member.name}</h3>
+          <Badge variant="link">
+            <Asset name="icon-linkedin" width={10} height={10} />
+            LinkedIn
+          </Badge>
+        </div>
+        <p
+          className={`font-body text-badge font-semibold tracking-badge-caps uppercase ${
+            member.disciplineTone === "coral" ? "text-coral" : "text-terracotta"
+          }`}
+        >
+          {member.discipline}
+        </p>
+        <p className="font-body text-body-sm leading-[1.7] text-terracotta">{member.bio}</p>
       </div>
     </article>
   );
@@ -44,8 +48,8 @@ function TeamCard({ member }: { member: TeamMember }) {
 
 export function About() {
   return (
-    <section id="about" className="bg-gradient-about">
-      <div className="mx-auto grid max-w-[1440px] gap-12 px-5 py-12 md:px-10 md:py-16 xl:grid-cols-[380px_1fr] xl:gap-16 xl:px-16">
+    <section id="about" className="bg-gradient-aqua">
+      <div className="mx-auto grid max-w-[1440px] gap-12 px-5 py-12 md:px-10 md:py-16 xl:grid-cols-[352px_1fr] xl:gap-16 xl:px-16">
         <div className="flex flex-col gap-6">
           <Eyebrow tone="coral">About us</Eyebrow>
           <SectionHeading>Based in Amsterdam. Working everywhere.</SectionHeading>
@@ -55,8 +59,7 @@ export function About() {
           </p>
           <TeamDots>Amsterdam · Global</TeamDots>
         </div>
-        {/* Right-aligned, equal-sized card grid */}
-        <div className="grid w-full max-w-[660px] items-stretch gap-6 sm:grid-cols-2 lg:ml-auto">
+        <div className="grid items-stretch gap-6 md:grid-cols-2">
           {team.map((member) => (
             <TeamCard key={member.name} member={member} />
           ))}
