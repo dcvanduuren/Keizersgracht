@@ -3,7 +3,7 @@ import { Asset } from "@/components/ui/asset";
 import { Box, DownArrow, stepNote, stepTitle } from "./parts";
 import { DiagramFrame } from "./diagram-frame";
 
-const card = "rounded-card border-[1.5px] border-sand bg-canvas shadow-card";
+const card = "rounded-[3px] border-[1.5px] border-sand bg-canvas shadow-card";
 
 function DrawingsStep() {
   return (
@@ -23,14 +23,14 @@ function DrawingsStep() {
 function RulesStep() {
   return (
     <>
-      <Abs x={8} y={0} w={184} h={207} className="rounded-card-lg border-[1.5px] border-sand bg-canvas shadow-card" />
+      <Abs x={8} y={0} w={184} h={207} className="rounded-[3px] border-[1.5px] border-sand bg-canvas shadow-card" />
       <Abs x={24} y={22} w={152}>
         <p className="font-body text-caption leading-normal font-semibold text-center text-espresso">
           Your team’s knowledge
         </p>
       </Abs>
       <Abs x={24} y={52} w={152} className="border-t border-border-subtle/55" />
-      <Abs x={24} y={72} w={152} h={36} className="rounded-[18px] bg-aqua" />
+      <Abs x={24} y={72} w={152} h={36} className="rounded-[3px] bg-aqua" />
       <Abs x={24} y={81} w={152}>
         <p className="font-body text-body-lg leading-normal font-semibold text-center text-espresso">AI analysis</p>
       </Abs>
@@ -54,7 +54,7 @@ function PriceStep() {
       <Abs x={32} y={28} w={96}>
         <p className="font-body text-h2 leading-[1.3] text-center text-espresso">€</p>
       </Abs>
-      <Abs x={32} y={100} w={96} h={28} className="rounded-md bg-coral" />
+      <Abs x={32} y={100} w={96} h={28} className="rounded-[3px] bg-coral" />
       <Abs x={32} y={105} w={96}>
         <p className="font-body text-label leading-normal font-semibold text-center text-espresso">Ready</p>
       </Abs>

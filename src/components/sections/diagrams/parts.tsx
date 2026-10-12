@@ -22,7 +22,7 @@ export function Bar({
   return (
     <span
       aria-hidden
-      className={cn("block shrink-0 rounded-xs", tones[tone], className)}
+      className={cn("block shrink-0 rounded-[1px]", tones[tone], className)}
       style={{ width: w, height: h }}
     />
   );

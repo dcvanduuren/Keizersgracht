@@ -6,7 +6,7 @@ import { Bar, Box, DownArrow } from "./parts";
 import { DiagramFrame } from "./diagram-frame";
 
 const label = "font-body text-label font-semibold text-espresso";
-const card = "flex flex-col rounded-card border border-sand shadow-card";
+const card = "flex flex-col rounded-[3px] border border-sand shadow-card";
 
 function IncomingRequests({ className }: { className?: string }) {
   return (
@@ -26,7 +26,7 @@ function AiAnalysis({ className }: { className?: string }) {
     <div className={cn("flex w-24 flex-col gap-2", className)}>
       <div className={cn(card, "gap-1.5 bg-sand p-2.5")}>
         <div className="flex items-center gap-1.5">
-          <span aria-hidden className="size-2 shrink-0 rounded-pill bg-coral" />
+          <span aria-hidden className="size-2 shrink-0 rounded-[2px] bg-coral" />
           <Bar w={56} h={4} tone="terracotta" />
         </div>
         <Bar w={76} h={4} tone="aqua" />

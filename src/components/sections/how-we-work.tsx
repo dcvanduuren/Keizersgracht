@@ -12,9 +12,9 @@ export function HowWeWork() {
 
   return (
     <section className="bg-gradient-coral">
-      <div className="mx-auto grid max-w-[1440px] gap-12 px-5 py-12 md:px-10 md:py-16 lg:grid-cols-[minmax(0,420px)_1fr] xl:gap-20 xl:px-16">
-        {/* Left Column: Sticky on desktop */}
-        <div className="flex flex-col gap-6 lg:sticky lg:top-28 lg:self-start">
+      <div className="mx-auto grid max-w-[1440px] gap-12 px-5 py-12 md:px-10 md:py-16 lg:grid-cols-[1fr_minmax(0,420px)] xl:grid-cols-[1fr_420px] xl:gap-20 xl:px-16">
+        {/* Intro Block: on mobile top (order-1), on desktop right side (lg:order-2) & sticky */}
+        <div className="order-1 flex flex-col gap-6 lg:order-2 lg:sticky lg:top-28 lg:self-start">
           <Eyebrow tone="coral">Why we started</Eyebrow>
           <SectionHeading>Software built around your team, not the other way around.</SectionHeading>
           <p className="font-body text-body leading-body text-terracotta">
@@ -24,8 +24,8 @@ export function HowWeWork() {
           </p>
         </div>
 
-        {/* Right Column: Cadence Timeline without background bubble */}
-        <div className="flex flex-col gap-6">
+        {/* Timeline Block: on mobile bottom (order-2), on desktop left side (lg:order-1) */}
+        <div className="order-2 flex flex-col gap-6 lg:order-1">
           <div className="flex items-center justify-between">
             <Eyebrow>How we work</Eyebrow>
             <span className="font-body text-label font-semibold tracking-wide text-terracotta uppercase">
@@ -63,7 +63,7 @@ export function HowWeWork() {
                   <span
                     aria-hidden
                     className={cn(
-                      "absolute left-[6.75px] top-[24px] -translate-x-1/2 -translate-y-1/2 rounded-full transition-all duration-300",
+                      "absolute left-[6.75px] top-[24px] -translate-x-1/2 -translate-y-1/2 rounded-[2px] transition-all duration-300",
                       isActive
                         ? "size-2.5 bg-coral"
                         : isPast
@@ -106,7 +106,7 @@ export function HowWeWork() {
                     <div className="flex shrink-0 items-center gap-2 pt-0.5">
                       <span
                         className={cn(
-                          "rounded-pill px-2.5 py-0.5 font-body text-micro font-semibold uppercase tracking-wider transition-colors",
+                          "rounded-[2px] px-2.5 py-0.5 font-body text-micro font-semibold uppercase tracking-wider transition-colors",
                           isActive
                             ? "bg-sand font-bold text-espresso"
                             : "bg-sand/60 text-terracotta group-hover:bg-sand group-hover:text-espresso"

@@ -7,8 +7,8 @@ import { DiagramFrame } from "./diagram-frame";
 
 function VialCard({ icon, label, className }: { icon: string; label: string; className?: string }) {
   return (
-    <div className={cn("flex flex-col gap-2 rounded-card bg-canvas p-3", className)}>
-      <div className="flex h-16 items-center justify-center rounded-lg bg-sand">
+    <div className={cn("flex flex-col gap-2 rounded-[3px] bg-canvas p-3", className)}>
+      <div className="flex h-16 items-center justify-center rounded-[2px] bg-sand">
         <Asset name={icon} width={28} height={28} />
       </div>
       <p className="font-body text-label leading-tight font-semibold text-center text-espresso">{label}</p>
@@ -18,7 +18,7 @@ function VialCard({ icon, label, className }: { icon: string; label: string; cla
 
 function AppInterface({ className }: { className?: string }) {
   return (
-    <div className={cn("flex flex-col gap-3 rounded-card-lg bg-canvas p-4", className)}>
+    <div className={cn("flex flex-col gap-3 rounded-[3px] bg-canvas p-4", className)}>
       <div className="flex items-center justify-between">
         <p className="font-body text-caption font-semibold text-terracotta">Safe Water Gardens app</p>
         <div className="flex items-center gap-1.5">
@@ -36,7 +36,7 @@ function AppInterface({ className }: { className?: string }) {
           Survey
         </Badge>
       </div>
-      <div className="flex h-20 flex-col gap-2.5 rounded-[18px] bg-sand p-4">
+      <div className="flex h-20 flex-col gap-2.5 rounded-[3px] bg-sand p-4">
         <div className="flex items-center justify-between gap-3">
           <div className="flex flex-col gap-0.5">
             <p className="font-body text-label leading-tight text-terracotta">Sanitation score</p>

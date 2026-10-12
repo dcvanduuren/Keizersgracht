@@ -32,7 +32,7 @@ export function Hero() {
 
         {/* Row 1 / Right: Photo */}
         <div className="lg:col-start-2 lg:row-start-1">
-          <div className="relative aspect-[479/530] w-full overflow-hidden rounded-card-lg shadow-card lg:mt-[67px] lg:w-[90.72%]">
+          <div className="relative aspect-[479/530] w-full overflow-hidden rounded-[3px] shadow-card lg:mt-[67px] lg:w-[90.72%]">
             <Image
               src="/assets/hero-photo.png"
               alt="Two people laughing over iced coffee at a café terrace"
@@ -42,7 +42,7 @@ export function Hero() {
               className="object-cover opacity-[0.92]"
             />
             <div aria-hidden className="absolute inset-0 bg-coral/3" />
-            <div aria-hidden className="absolute inset-0 rounded-card-lg border border-border-hairline" />
+            <div aria-hidden className="absolute inset-0 rounded-[3px] border border-border-hairline" />
           </div>
         </div>
 
