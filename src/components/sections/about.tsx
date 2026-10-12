@@ -10,7 +10,7 @@ function TeamCard({ member }: { member: TeamMember }) {
   return (
     <article
       tabIndex={0}
-      className="group relative flex h-[460px] flex-col justify-end overflow-hidden rounded-[3px] bg-canvas shadow-card focus:outline-none"
+      className="group relative flex h-[460px] flex-col justify-end overflow-hidden rounded-[3px] bg-canvas shadow-card transition-transform duration-300 hover:-translate-y-0.5 focus-within:-translate-y-0.5 focus:outline-none"
     >
       {/* Full-bleed portrait photo */}
       <div className="absolute inset-0 w-full h-full overflow-hidden bg-canvas">
