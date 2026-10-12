@@ -11,7 +11,7 @@ export function HowWeWork() {
   const activeIndex = principles.findIndex((p) => p.number === activeStep);
 
   return (
-    <section className="bg-gradient-coral">
+    <section className="bg-gradient-principles">
       <div className="mx-auto grid max-w-[1440px] gap-12 px-5 py-12 md:px-10 md:py-16 lg:grid-cols-[minmax(0,420px)_1fr] xl:gap-20 xl:px-16">
         {/* Left Column: Sticky on desktop */}
         <div className="flex flex-col gap-6 lg:sticky lg:top-28 lg:self-start">

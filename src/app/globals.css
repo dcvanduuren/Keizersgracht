@@ -104,19 +104,27 @@ html {
 
 /* Background Gradients */
 .bg-gradient-coral {
-  background-image: linear-gradient(90deg, #F5F4ED 0%, #F9BCA8 55%, #ECECDC 100%);
+  background-image: linear-gradient(95deg, #F5F4ED 0%, #F9BCA8 62%, #ECECDC 100%);
 }
 
 .bg-gradient-aqua {
-  background-image: linear-gradient(90deg, #F5F4ED 0%, #C2DAD9 55%, #ECECDC 100%);
+  background-image: linear-gradient(105deg, #F5F4ED 0%, #C2DAD9 42%, #ECECDC 100%);
 }
 
 .bg-gradient-stone {
-  background-image: linear-gradient(90deg, #F5F4ED 0%, #D7C8C3 55%, #ECECDC 100%);
+  background-image: linear-gradient(85deg, #F5F4ED 0%, #D7C8C3 54%, #ECECDC 100%);
+}
+
+.bg-gradient-principles {
+  background-image: linear-gradient(100deg, #F5F4ED 0%, #F9BCA8 46%, #ECECDC 100%);
+}
+
+.bg-gradient-about {
+  background-image: linear-gradient(92deg, #F5F4ED 0%, #C2DAD9 64%, #ECECDC 100%);
 }
 
 .bg-gradient-talk {
-  background-image: linear-gradient(90deg, #F5F4ED 0%, #ECECDC 55%, #F9BCA8 100%);
+  background-image: linear-gradient(96deg, #F5F4ED 0%, #ECECDC 42%, #F9BCA8 88%);
 }
 
 /*

@@ -48,7 +48,7 @@ function TeamCard({ member }: { member: TeamMember }) {
 
 export function About() {
   return (
-    <section id="about" className="bg-gradient-aqua">
+    <section id="about" className="bg-gradient-about">
       <div className="mx-auto grid max-w-[1440px] gap-12 px-5 py-12 md:px-10 md:py-16 xl:grid-cols-[352px_1fr] xl:gap-16 xl:px-16">
         <div className="flex flex-col gap-6">
           <Eyebrow tone="coral">About us</Eyebrow>
