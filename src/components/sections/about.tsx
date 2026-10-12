@@ -9,7 +9,7 @@ import { team, type TeamMember } from "@/data/team";
 function TeamCard({ member }: { member: TeamMember }) {
   const { heightShare, offsetShare } = member.crop;
   return (
-    <article className="flex flex-col overflow-hidden rounded-card-lg border border-border-subtle bg-canvas shadow-card">
+    <article className="flex flex-col overflow-hidden rounded-card-lg border border-border-subtle bg-canvas">
       {/* Reproduces the Figma crop (stretch + crop transform) at the original 435:360 ratio. */}
       <div className="relative aspect-[435/360] w-full overflow-hidden border-b border-border-subtle">
         <div
