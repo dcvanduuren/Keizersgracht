@@ -4,8 +4,7 @@ export type TeamMember = {
   disciplineTone: "coral" | "terracotta";
   bio: string;
   photo: string;
-  /** Figma crop of the source photo: share of the image height that is visible and where it starts. */
-  crop: { heightShare: number; offsetShare: number };
+  linkedin: string;
   photoAlt: string;
 };
 
@@ -15,17 +14,17 @@ export const team: TeamMember[] = [
     discipline: "Development · Data",
     disciplineTone: "coral",
     bio: "Kilan holds an MSc in Computer Science. He specializes in full-stack architecture, clean data pipelines, and turning complex internal operations into fast, intuitive web tools.",
-    photo: "/assets/team-kilan-portrait.png",
-    crop: { heightShare: 1, offsetShare: 0 },
+    photo: "/assets/team-kilan-43.png",
+    linkedin: "https://www.linkedin.com/in/kilanvanloo/",
     photoAlt: "Portrait of Kilan",
   },
   {
     name: "Cheremy",
-    discipline: "AI · Biomedical Sciences",
+    discipline: "AI · Biomedical Engineering",
     disciplineTone: "terracotta",
-    bio: "Cheremy holds MSc degrees in Artificial Intelligence and Biomedical Sciences, and consults on machine learning at Xomnia. He focuses on applied NLP, predictive modeling, and making AI systems reliable in production.",
-    photo: "/assets/team-cheremy-portrait.png",
-    crop: { heightShare: 1, offsetShare: 0 },
+    bio: "Cheremy holds MSc degrees in Artificial Intelligence and Biomedical Engineering, and consults on machine learning at Xomnia. He focuses on applied NLP, predictive modeling, and making AI systems reliable in production.",
+    photo: "/assets/team-cheremy-43.png",
+    linkedin: "https://www.linkedin.com/in/cheremyp/",
     photoAlt: "Portrait of Cheremy",
   },
 ];
