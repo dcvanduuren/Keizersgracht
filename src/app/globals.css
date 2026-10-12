@@ -102,29 +102,29 @@ html {
   }
 }
 
-/* Background Gradients */
+/* Background Gradients: gently varied angles and focal points for subtle rhythm */
 .bg-gradient-coral {
-  background-image: linear-gradient(95deg, #F5F4ED 0%, #F9BCA8 62%, #ECECDC 100%);
+  background-image: linear-gradient(105deg, #F5F4ED 0%, #F9BCA8 52%, #ECECDC 100%);
 }
 
 .bg-gradient-aqua {
-  background-image: linear-gradient(105deg, #F5F4ED 0%, #C2DAD9 42%, #ECECDC 100%);
+  background-image: linear-gradient(78deg, #F5F4ED 0%, #C2DAD9 62%, #ECECDC 100%);
 }
 
 .bg-gradient-stone {
-  background-image: linear-gradient(85deg, #F5F4ED 0%, #D7C8C3 54%, #ECECDC 100%);
+  background-image: linear-gradient(112deg, #F5F4ED 0%, #D7C8C3 46%, #ECECDC 100%);
 }
 
-.bg-gradient-principles {
-  background-image: linear-gradient(100deg, #F5F4ED 0%, #F9BCA8 46%, #ECECDC 100%);
+.bg-gradient-how-we-work {
+  background-image: linear-gradient(84deg, #F5F4ED 0%, #F9BCA8 58%, #ECECDC 100%);
 }
 
 .bg-gradient-about {
-  background-image: linear-gradient(92deg, #F5F4ED 0%, #C2DAD9 64%, #ECECDC 100%);
+  background-image: linear-gradient(120deg, #F5F4ED 0%, #C2DAD9 48%, #ECECDC 100%);
 }
 
 .bg-gradient-talk {
-  background-image: linear-gradient(96deg, #F5F4ED 0%, #ECECDC 42%, #F9BCA8 88%);
+  background-image: linear-gradient(108deg, #F5F4ED 0%, #ECECDC 44%, #F9BCA8 90%);
 }
 
 /*
