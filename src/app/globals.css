@@ -102,35 +102,47 @@ html {
   }
 }
 
-/* Background Gradients: soft ambient bulbs of saturation that dissolve outward without diagonal lines */
+/* Background Gradients: generous ambient bulbs of saturation with warm sand transitions (no excess white space) */
 .bg-gradient-coral {
   background-color: #F5F4ED;
-  background-image: radial-gradient(ellipse 65% 80% at 70% 45%, #F9BCA8 0%, rgba(249, 188, 168, 0.45) 45%, rgba(245, 244, 237, 0) 80%);
+  background-image:
+    radial-gradient(ellipse 95% 120% at 70% 45%, #F9BCA8 0%, rgba(249, 188, 168, 0.7) 35%, rgba(249, 188, 168, 0.25) 70%, rgba(245, 244, 237, 0) 95%),
+    linear-gradient(180deg, #F5F4ED 0%, #ECECDC 100%);
 }
 
 .bg-gradient-aqua {
   background-color: #F5F4ED;
-  background-image: radial-gradient(ellipse 65% 80% at 34% 55%, #C2DAD9 0%, rgba(194, 218, 217, 0.45) 45%, rgba(245, 244, 237, 0) 80%);
+  background-image:
+    radial-gradient(ellipse 95% 120% at 34% 55%, #C2DAD9 0%, rgba(194, 218, 217, 0.7) 35%, rgba(194, 218, 217, 0.25) 70%, rgba(245, 244, 237, 0) 95%),
+    linear-gradient(180deg, #F5F4ED 0%, #ECECDC 100%);
 }
 
 .bg-gradient-stone {
   background-color: #F5F4ED;
-  background-image: radial-gradient(ellipse 65% 80% at 68% 40%, #D7C8C3 0%, rgba(215, 200, 195, 0.45) 45%, rgba(245, 244, 237, 0) 80%);
+  background-image:
+    radial-gradient(ellipse 95% 120% at 68% 40%, #D7C8C3 0%, rgba(215, 200, 195, 0.7) 35%, rgba(215, 200, 195, 0.25) 70%, rgba(245, 244, 237, 0) 95%),
+    linear-gradient(180deg, #F5F4ED 0%, #ECECDC 100%);
 }
 
 .bg-gradient-how-we-work {
   background-color: #F5F4ED;
-  background-image: radial-gradient(ellipse 70% 85% at 46% 48%, #F9BCA8 0%, rgba(249, 188, 168, 0.45) 45%, rgba(245, 244, 237, 0) 80%);
+  background-image:
+    radial-gradient(ellipse 100% 125% at 46% 48%, #F9BCA8 0%, rgba(249, 188, 168, 0.7) 35%, rgba(249, 188, 168, 0.25) 70%, rgba(245, 244, 237, 0) 95%),
+    linear-gradient(180deg, #F5F4ED 0%, #ECECDC 100%);
 }
 
 .bg-gradient-about {
   background-color: #F5F4ED;
-  background-image: radial-gradient(ellipse 65% 85% at 66% 50%, #C2DAD9 0%, rgba(194, 218, 217, 0.45) 45%, rgba(245, 244, 237, 0) 80%);
+  background-image:
+    radial-gradient(ellipse 95% 125% at 66% 50%, #C2DAD9 0%, rgba(194, 218, 217, 0.7) 35%, rgba(194, 218, 217, 0.25) 70%, rgba(245, 244, 237, 0) 95%),
+    linear-gradient(180deg, #F5F4ED 0%, #ECECDC 100%);
 }
 
 .bg-gradient-talk {
   background-color: #F5F4ED;
-  background-image: radial-gradient(ellipse 70% 85% at 76% 55%, #F9BCA8 0%, rgba(249, 188, 168, 0.45) 45%, rgba(245, 244, 237, 0) 80%);
+  background-image:
+    radial-gradient(ellipse 100% 125% at 76% 55%, #F9BCA8 0%, rgba(249, 188, 168, 0.7) 35%, rgba(249, 188, 168, 0.25) 70%, rgba(245, 244, 237, 0) 95%),
+    linear-gradient(180deg, #F5F4ED 0%, #ECECDC 100%);
 }
 
 /*
