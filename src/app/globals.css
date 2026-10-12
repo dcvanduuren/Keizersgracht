@@ -131,3 +131,34 @@ html {
     radial-gradient(ellipse 79.2% 105.9% at 105% -5%, rgba(160, 201, 203, 0.1) 0%, rgba(160, 201, 203, 0.07) 50%, rgba(160, 201, 203, 0) 100%),
     radial-gradient(ellipse 112.5% 70.6% at -8% 110%, rgba(255, 96, 55, 0.1) 0%, rgba(255, 96, 55, 0.08) 50%, rgba(255, 96, 55, 0) 100%);
 }
+
+/* Infinite Marquee Carousel */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.mask-marquee {
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
