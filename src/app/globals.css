@@ -102,29 +102,35 @@ html {
   }
 }
 
-/* Background Gradients: playful, visible flow shifts across the 2D plane while preserving exact saturation */
+/* Background Gradients: soft ambient bulbs of saturation that dissolve outward without diagonal lines */
 .bg-gradient-coral {
-  background-image: linear-gradient(125deg, #F5F4ED 5%, #F9BCA8 65%, #ECECDC 100%);
+  background-color: #F5F4ED;
+  background-image: radial-gradient(ellipse 65% 80% at 70% 45%, #F9BCA8 0%, rgba(249, 188, 168, 0.45) 45%, rgba(245, 244, 237, 0) 80%);
 }
 
 .bg-gradient-aqua {
-  background-image: linear-gradient(55deg, #F5F4ED 0%, #C2DAD9 40%, #ECECDC 95%);
+  background-color: #F5F4ED;
+  background-image: radial-gradient(ellipse 65% 80% at 34% 55%, #C2DAD9 0%, rgba(194, 218, 217, 0.45) 45%, rgba(245, 244, 237, 0) 80%);
 }
 
 .bg-gradient-stone {
-  background-image: linear-gradient(145deg, #F5F4ED 10%, #D7C8C3 55%, #ECECDC 100%);
+  background-color: #F5F4ED;
+  background-image: radial-gradient(ellipse 65% 80% at 68% 40%, #D7C8C3 0%, rgba(215, 200, 195, 0.45) 45%, rgba(245, 244, 237, 0) 80%);
 }
 
 .bg-gradient-how-we-work {
-  background-image: linear-gradient(65deg, #F5F4ED 0%, #F9BCA8 45%, #ECECDC 100%);
+  background-color: #F5F4ED;
+  background-image: radial-gradient(ellipse 70% 85% at 46% 48%, #F9BCA8 0%, rgba(249, 188, 168, 0.45) 45%, rgba(245, 244, 237, 0) 80%);
 }
 
 .bg-gradient-about {
-  background-image: linear-gradient(130deg, #F5F4ED 5%, #C2DAD9 65%, #ECECDC 100%);
+  background-color: #F5F4ED;
+  background-image: radial-gradient(ellipse 65% 85% at 66% 50%, #C2DAD9 0%, rgba(194, 218, 217, 0.45) 45%, rgba(245, 244, 237, 0) 80%);
 }
 
 .bg-gradient-talk {
-  background-image: linear-gradient(110deg, #F5F4ED 0%, #ECECDC 35%, #F9BCA8 85%);
+  background-color: #F5F4ED;
+  background-image: radial-gradient(ellipse 70% 85% at 76% 55%, #F9BCA8 0%, rgba(249, 188, 168, 0.45) 45%, rgba(245, 244, 237, 0) 80%);
 }
 
 /*
