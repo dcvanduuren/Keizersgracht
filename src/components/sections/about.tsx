@@ -10,7 +10,7 @@ function TeamCard({ member }: { member: TeamMember }) {
   return (
     <article
       tabIndex={0}
-      className="group relative flex h-[460px] flex-col justify-end overflow-hidden rounded-[3px] bg-canvas shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg focus-within:-translate-y-0.5 focus-within:shadow-lg focus:outline-none"
+      className="group relative flex h-[460px] flex-col justify-end overflow-hidden rounded-[3px] bg-canvas shadow-card focus:outline-none"
     >
       {/* Full-bleed portrait photo */}
       <div className="absolute inset-0 w-full h-full overflow-hidden bg-canvas">
@@ -19,7 +19,7 @@ function TeamCard({ member }: { member: TeamMember }) {
           alt={member.photoAlt}
           fill
           sizes="(min-width: 1024px) 340px, (min-width: 640px) 50vw, 100vw"
-          className="object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+          className="object-cover object-top"
         />
       </div>
 
