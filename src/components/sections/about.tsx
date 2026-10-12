@@ -8,9 +8,9 @@ import { team, type TeamMember } from "@/data/team";
 
 function TeamCard({ member }: { member: TeamMember }) {
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-card-lg border border-border-subtle bg-sand shadow-card transition-all duration-200 hover:shadow-lg">
-      {/* Full-bleed photo at top, matching hero image styling (no inset) */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden border-b border-border-subtle bg-sand">
+    <article className="flex h-full flex-col overflow-hidden rounded-card-lg border border-border-subtle bg-canvas shadow-card transition-all duration-200 hover:shadow-lg">
+      {/* Full-bleed square portrait photo at top, matching hero styling */}
+      <div className="relative aspect-square w-full overflow-hidden border-b border-border-subtle bg-canvas">
         <Image
           src={member.photo}
           alt={member.photoAlt}
@@ -44,7 +44,7 @@ function TeamCard({ member }: { member: TeamMember }) {
 
 export function About() {
   return (
-    <section id="about" className="bg-gradient-aqua">
+    <section id="about" className="bg-gradient-about">
       <div className="mx-auto grid max-w-[1440px] gap-12 px-5 py-12 md:px-10 md:py-16 xl:grid-cols-[380px_1fr] xl:gap-16 xl:px-16">
         <div className="flex flex-col gap-6">
           <Eyebrow tone="coral">About us</Eyebrow>
@@ -56,7 +56,7 @@ export function About() {
           <TeamDots>Amsterdam · Global</TeamDots>
         </div>
         {/* Right-aligned, equal-sized card grid */}
-        <div className="grid w-full max-w-[680px] items-stretch gap-6 sm:grid-cols-2 lg:ml-auto">
+        <div className="grid w-full max-w-[660px] items-stretch gap-6 sm:grid-cols-2 lg:ml-auto">
           {team.map((member) => (
             <TeamCard key={member.name} member={member} />
           ))}

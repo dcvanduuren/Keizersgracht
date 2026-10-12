@@ -15,8 +15,8 @@ export const team: TeamMember[] = [
     discipline: "Development · Data",
     disciplineTone: "coral",
     bio: "Kilan holds an MSc in Computer Science. He specializes in full-stack architecture, clean data pipelines, and turning complex internal operations into fast, intuitive web tools.",
-    photo: "/assets/team-kilan.png",
-    crop: { heightShare: 0.48, offsetShare: 0.02 },
+    photo: "/assets/team-kilan-portrait.png",
+    crop: { heightShare: 1, offsetShare: 0 },
     photoAlt: "Portrait of Kilan",
   },
   {
@@ -24,8 +24,8 @@ export const team: TeamMember[] = [
     discipline: "AI · Biomedical Sciences",
     disciplineTone: "terracotta",
     bio: "Cheremy holds MSc degrees in Artificial Intelligence and Biomedical Sciences, and consults on machine learning at Xomnia. He focuses on applied NLP, predictive modeling, and making AI systems reliable in production.",
-    photo: "/assets/team-cheremy.png",
-    crop: { heightShare: 0.65, offsetShare: 0 },
+    photo: "/assets/team-cheremy-portrait.png",
+    crop: { heightShare: 1, offsetShare: 0 },
     photoAlt: "Portrait of Cheremy",
   },
 ];
