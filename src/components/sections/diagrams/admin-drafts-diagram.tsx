@@ -6,7 +6,7 @@ import { Bar, Box, DownArrow } from "./parts";
 import { DiagramFrame } from "./diagram-frame";
 
 const label = "font-body text-label font-semibold text-espresso";
-const card = "flex flex-col rounded-[3px] border border-sand shadow-card";
+const card = "flex flex-col rounded-[3px] shadow-card";
 
 function IncomingRequests({ className }: { className?: string }) {
   return (

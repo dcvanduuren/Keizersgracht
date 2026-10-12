@@ -3,7 +3,7 @@ import { Asset } from "@/components/ui/asset";
 import { Box, DownArrow, stepNote, stepTitle } from "./parts";
 import { DiagramFrame } from "./diagram-frame";
 
-const card = "rounded-[3px] border-[1.5px] border-sand bg-canvas shadow-card";
+const card = "rounded-[3px] bg-canvas shadow-card";
 
 function DrawingsStep() {
   return (
@@ -23,7 +23,7 @@ function DrawingsStep() {
 function RulesStep() {
   return (
     <>
-      <Abs x={8} y={0} w={184} h={207} className="rounded-[3px] border-[1.5px] border-sand bg-canvas shadow-card" />
+      <Abs x={8} y={0} w={184} h={207} className="rounded-[3px] bg-canvas shadow-card" />
       <Abs x={24} y={22} w={152}>
         <p className="font-body text-caption leading-normal font-semibold text-center text-espresso">
           Your team’s knowledge

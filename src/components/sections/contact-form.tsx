@@ -20,7 +20,7 @@ export function ContactForm() {
     <form
       onSubmit={handleSubmit}
       suppressHydrationWarning
-      className="flex w-full flex-col gap-5 rounded-[3px] border border-border-subtle bg-sand/60 p-6 shadow-card backdrop-blur-sm sm:p-8"
+      className="flex w-full flex-col gap-5 rounded-[3px] bg-sand/60 p-6 shadow-card backdrop-blur-sm sm:p-8"
     >
       <div className="flex flex-col gap-2">
         <label htmlFor="email" className={labelClass}>

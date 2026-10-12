@@ -8,9 +8,9 @@ import { team, type TeamMember } from "@/data/team";
 
 function TeamCard({ member }: { member: TeamMember }) {
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-[3px] border border-border-subtle bg-sand shadow-card transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg">
+    <article className="flex h-full flex-col overflow-hidden rounded-[3px] bg-sand shadow-card transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg">
       {/* Full-bleed 4:3 photo (wider shape) matching hero picture treatment */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden border-b border-border-subtle bg-sand">
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-sand">
         <Image
           src={member.photo}
           alt={member.photoAlt}
