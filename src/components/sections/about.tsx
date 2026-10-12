@@ -8,18 +8,23 @@ import { team, type TeamMember } from "@/data/team";
 
 function TeamCard({ member }: { member: TeamMember }) {
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-[3px] bg-canvas shadow-card transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg">
-      {/* Full-bleed 4:3 photo (wider shape) matching hero picture treatment */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-canvas">
+    <article
+      tabIndex={0}
+      className="group relative flex h-[460px] flex-col justify-end overflow-hidden rounded-[3px] bg-canvas shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg focus-within:-translate-y-0.5 focus-within:shadow-lg focus:outline-none"
+    >
+      {/* Full-bleed portrait photo */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden bg-canvas">
         <Image
           src={member.photo}
           alt={member.photoAlt}
           fill
           sizes="(min-width: 1024px) 340px, (min-width: 640px) 50vw, 100vw"
-          className="object-cover"
+          className="object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.03]"
         />
       </div>
-      <div className="flex flex-1 flex-col justify-between gap-4 p-5">
+
+      {/* Floating text sheet at bottom: moves up on hover */}
+      <div className="relative z-10 flex flex-col justify-between bg-canvas p-5 shadow-[0_-4px_16px_rgba(53,30,28,0.04)] transition-transform duration-300 ease-out">
         <div className="flex flex-col gap-2">
           <div className="flex items-center justify-between gap-2">
             <h3 className="font-display text-[19px] font-bold tracking-name text-espresso">{member.name}</h3>
@@ -43,7 +48,13 @@ function TeamCard({ member }: { member: TeamMember }) {
           >
             {member.discipline}
           </p>
-          <p className="font-body text-body-sm leading-[1.65] text-terracotta">{member.bio}</p>
+
+          {/* Body text expands on hover */}
+          <div className="grid grid-rows-[0fr] opacity-0 transition-all duration-300 ease-out group-hover:grid-rows-[1fr] group-hover:opacity-100 group-focus-within:grid-rows-[1fr] group-focus-within:opacity-100">
+            <div className="overflow-hidden">
+              <p className="pt-2 font-body text-body-sm leading-[1.65] text-terracotta">{member.bio}</p>
+            </div>
+          </div>
         </div>
       </div>
     </article>
