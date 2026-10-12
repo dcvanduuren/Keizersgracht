@@ -15,8 +15,8 @@ const variants = {
   /** Pills with an icon (rating pill / chip). */
   chipAqua: "gap-2 bg-aqua px-2.5 py-1.5 text-label text-terracotta",
   chipCanvas: "gap-2 bg-canvas px-2.5 py-1.5 text-label text-terracotta",
-  /** Bordered outline pill with icon (LinkedIn). */
-  link: "gap-1.5 border border-border-subtle bg-canvas px-2.5 py-1 text-micro uppercase tracking-chip-caps text-terracotta",
+  /** Aqua pill with icon (LinkedIn). */
+  link: "gap-1.5 bg-aqua px-2.5 py-1 text-micro uppercase tracking-chip-caps text-terracotta transition-colors hover:bg-aqua/80",
 } as const;
 
 export type BadgeVariant = keyof typeof variants;
