@@ -12,7 +12,7 @@ export function HowWeWork() {
 
   return (
     <section className="bg-gradient-coral">
-      <div className="mx-auto grid max-w-[1440px] gap-12 px-5 py-12 md:px-10 md:py-16 lg:grid-cols-[1fr_minmax(0,420px)] xl:grid-cols-[1fr_420px] xl:gap-20 xl:px-16">
+      <div className="mx-auto grid max-w-[1440px] gap-12 px-5 py-16 md:px-10 md:py-24 xl:py-28 lg:grid-cols-[1fr_minmax(0,420px)] xl:grid-cols-[1fr_420px] xl:gap-20 xl:px-16">
         {/* Intro Block: on mobile top (order-1), on desktop right side (lg:order-2) & sticky */}
         <div className="order-1 flex flex-col gap-6 lg:order-2 lg:sticky lg:top-28 lg:self-start">
           <Eyebrow tone="coral">Why we started</Eyebrow>
@@ -25,7 +25,7 @@ export function HowWeWork() {
         </div>
 
         {/* Timeline Block: on mobile bottom (order-2), on desktop left side (lg:order-1) */}
-        <div className="order-2 flex flex-col gap-6 lg:order-1">
+        <div className="order-2 flex flex-col gap-8 lg:order-1">
           <div className="flex items-center justify-between">
             <Eyebrow>How we work</Eyebrow>
             <span className="font-body text-label font-semibold tracking-wide text-terracotta uppercase">
@@ -34,20 +34,18 @@ export function HowWeWork() {
           </div>
 
           <div className="relative flex flex-col">
-            {/* Continuous timeline track line */}
+            {/* Continuous timeline track line with embedded progress fill */}
             <div
               aria-hidden
-              className="pointer-events-none absolute left-[6px] top-4 bottom-4 w-[1.5px] bg-espresso/15"
-            />
-
-            {/* Active progress line fill */}
-            <div
-              aria-hidden
-              className="pointer-events-none absolute left-[6px] top-4 w-[1.5px] bg-coral transition-all duration-500 ease-in-out"
-              style={{
-                height: `${(Math.max(0, activeIndex) / (principles.length - 1)) * 100}%`,
-              }}
-            />
+              className="pointer-events-none absolute left-[6px] top-[34px] sm:top-[38px] bottom-[34px] sm:bottom-[38px] w-[1.5px] bg-espresso/15"
+            >
+              <div
+                className="w-full bg-coral transition-all duration-500 ease-in-out"
+                style={{
+                  height: `${(Math.max(0, activeIndex) / (principles.length - 1)) * 100}%`,
+                }}
+              />
+            </div>
 
             {principles.map((principle, index) => {
               const isActive = activeStep === principle.number;
@@ -57,13 +55,13 @@ export function HowWeWork() {
               return (
                 <div
                   key={principle.number}
-                  className="group relative border-b border-border-hairline/50 py-4 pl-7 transition-colors duration-200 last:border-b-0"
+                  className="group relative border-b border-border-hairline/50 py-6 sm:py-7 pl-8 transition-colors duration-200 last:border-b-0"
                 >
                   {/* Timeline node marker on the line (clean, no bubble) */}
                   <span
                     aria-hidden
                     className={cn(
-                      "absolute left-[6.75px] top-[24px] -translate-x-1/2 -translate-y-1/2 rounded-[2px] transition-all duration-300",
+                      "absolute left-[6.75px] top-[34px] sm:top-[38px] -translate-x-1/2 -translate-y-1/2 rounded-[2px] transition-all duration-300",
                       isActive
                         ? "size-2.5 bg-coral"
                         : isPast
@@ -130,11 +128,11 @@ export function HowWeWork() {
                   <div
                     className={cn(
                       "grid transition-all duration-300 ease-in-out",
-                      isActive ? "grid-rows-[1fr] opacity-100 pt-2.5" : "grid-rows-[0fr] opacity-0"
+                      isActive ? "grid-rows-[1fr] opacity-100 pt-3.5 pb-1" : "grid-rows-[0fr] opacity-0"
                     )}
                   >
                     <div className="overflow-hidden pl-7 sm:pl-8">
-                      <p className="max-w-[640px] font-body text-body-sm leading-[1.7] text-terracotta">
+                      <p className="max-w-[640px] font-body text-body-sm leading-[1.75] text-terracotta">
                         {principle.body}
                       </p>
 
@@ -146,7 +144,7 @@ export function HowWeWork() {
                             e.stopPropagation();
                             setActiveStep(nextPrinciple.number);
                           }}
-                          className="mt-3.5 inline-flex items-center gap-1.5 font-body text-label font-bold tracking-button text-coral uppercase transition-all hover:translate-y-0.5 hover:text-espresso"
+                          className="mt-4 inline-flex items-center gap-1.5 font-body text-label font-bold tracking-button text-coral uppercase transition-all hover:translate-y-0.5 hover:text-espresso"
                         >
                           Continue to Step {nextPrinciple.number}: {nextPrinciple.title}
                           <span aria-hidden>↓</span>
