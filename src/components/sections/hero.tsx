@@ -19,13 +19,13 @@ export function Hero() {
             <h1 className="font-display text-[44px] leading-hero font-bold tracking-tight-hero text-espresso sm:text-[60px] lg:text-[clamp(52px,5.56vw,80px)]">
               We like to make your work feel like light work.
             </h1>
-            <p className="font-body text-body-lg leading-body text-terracotta">
+            <p className="font-body text-[19px] leading-[1.55] text-terracotta sm:text-[20px]">
               AI, software and data, built around how your team already operates.
             </p>
           </div>
 
           {/* Row 2 / Left: Actions (TeamDots + CTA button) */}
-          <div className="flex flex-col items-start gap-4 pt-6 pb-8 lg:col-start-1 lg:row-start-2 lg:items-end lg:justify-end lg:pt-4 lg:pb-0 lg:pr-[29px]">
+          <div className="flex flex-col items-start gap-4 pt-6 pb-8 lg:col-start-1 lg:row-start-2 lg:items-end lg:justify-end lg:pt-4 lg:pb-0 lg:pr-1">
             <TeamDots tight>A team of two people means direct communication and real flexibility.</TeamDots>
             <div className="flex h-[52px] items-center">
               <Button href="#contact">Grab a coffee with us</Button>
@@ -34,7 +34,7 @@ export function Hero() {
 
           {/* Row 1 / Right: Photo */}
           <div className="lg:col-start-2 lg:row-start-1">
-            <div className="relative aspect-[479/530] w-full overflow-hidden rounded-[3px] shadow-card lg:w-[90.72%]">
+            <div className="relative aspect-[479/530] w-full overflow-hidden rounded-[3px] shadow-card">
               <Image
                 src="/assets/hero-photo.png"
                 alt="Two people laughing over iced coffee at a café terrace"
