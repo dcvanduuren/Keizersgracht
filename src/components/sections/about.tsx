@@ -10,10 +10,10 @@ function TeamCard({ member }: { member: TeamMember }) {
   return (
     <article
       tabIndex={0}
-      className="group relative flex h-[460px] flex-col justify-end overflow-hidden rounded-[3px] bg-canvas shadow-card transition-transform duration-300 hover:-translate-y-0.5 focus-within:-translate-y-0.5 focus:outline-none"
+      className="group relative flex h-[460px] flex-col justify-end overflow-hidden rounded-[3px] bg-sand shadow-card transition-transform duration-300 hover:-translate-y-0.5 focus-within:-translate-y-0.5 focus:outline-none"
     >
       {/* Full-bleed portrait photo */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden bg-canvas">
+      <div className="absolute inset-0 w-full h-full overflow-hidden bg-sand">
         <Image
           src={member.photo}
           alt={member.photoAlt}
@@ -24,7 +24,7 @@ function TeamCard({ member }: { member: TeamMember }) {
       </div>
 
       {/* Floating text sheet at bottom: moves up on hover */}
-      <div className="relative z-10 flex flex-col justify-between bg-canvas p-5 shadow-[0_-4px_16px_rgba(53,30,28,0.04)] transition-transform duration-300 ease-out">
+      <div className="relative z-10 flex flex-col justify-between bg-sand p-5 shadow-[0_-4px_16px_rgba(53,30,28,0.04)] transition-transform duration-300 ease-out">
         <div className="flex flex-col gap-2">
           <div className="flex items-center justify-between gap-2">
             <h3 className="font-display text-[19px] font-bold tracking-name text-espresso">{member.name}</h3>
