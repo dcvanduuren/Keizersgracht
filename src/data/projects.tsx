@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
-import { AdminDraftsDiagram } from "@/components/sections/diagrams/admin-drafts-diagram";
-import { CleanWaterDiagram } from "@/components/sections/diagrams/clean-water-diagram";
+import { AdminIntakeDiagram } from "@/components/sections/diagrams/admin-intake-diagram";
+import { SwgSurveyDiagram } from "@/components/sections/diagrams/swg-survey-diagram";
 import { PriceToolDiagram } from "@/components/sections/diagrams/price-tool-diagram";
 import type { ReactNode } from "react";
 
@@ -18,21 +18,21 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    id: "price-tool",
-    eyebrow: "01 — Price tool",
+    id: "admin-drafts",
+    eyebrow: "01 — Workflow automation",
     eyebrowTone: "coral",
-    title: "Smarter pricing for a construction company.",
+    title: "Turning incoming messages into ready-to-send replies.",
     description:
-      "A data-driven price calculation tool that helps project managers quote with confidence.",
+      "Whether clients reach out via email for a complex construction quote or message on WhatsApp to check class availability, our custom AI agents handle the admin work—analyzing intent, checking your live planning or pricing rules, and drafting accurate replies for your team to review and send in one click.",
     descriptionClassName: "text-taupe",
     gradientClassName: "bg-gradient-coral",
     tags: (
       <>
-        <Badge variant="tagSand">Data</Badge>
-        <Badge variant="tagSand">Dev</Badge>
+        <Badge variant="tagCoral">AI</Badge>
+        <Badge variant="tagCoral">Dev</Badge>
       </>
     ),
-    diagram: <PriceToolDiagram />,
+    diagram: <AdminIntakeDiagram />,
   },
   {
     id: "clean-water",
@@ -40,7 +40,7 @@ export const projects: Project[] = [
     eyebrowTone: "terracotta",
     title: "Measuring sanitation impact across rural Indonesia.",
     description:
-      "A field survey tool that tracks households with Safe Water Gardens (SWG) to measure long-term improvements in village sanitation and health.",
+      "We built the field census app for Safe Water Gardens (SWG), enabling both their team and the Indonesian government to monitor household participation, water quality, and long-term sanitation health.",
     descriptionClassName: "text-terracotta",
     gradientClassName: "bg-gradient-aqua",
     tags: (
@@ -49,23 +49,23 @@ export const projects: Project[] = [
         <Badge variant="tagAqua">Data</Badge>
       </>
     ),
-    diagram: <CleanWaterDiagram />,
+    diagram: <SwgSurveyDiagram />,
   },
   {
-    id: "admin-drafts",
-    eyebrow: "03 — Admin drafts",
+    id: "price-tool",
+    eyebrow: "03 — Price tool",
     eyebrowTone: "terracotta",
-    title: "Fast, clear replies for every client request.",
+    title: "Smarter pricing for a construction company.",
     description:
-      "An internal workflow tool that turns messy inbound inquiries into verified, draft-ready customer replies.",
+      "A data-driven price calculation tool that helps project managers quote with confidence.",
     descriptionClassName: "text-terracotta",
     gradientClassName: "bg-gradient-stone",
     tags: (
       <>
-        <Badge variant="tagCoral">AI</Badge>
-        <Badge variant="tagCoral">Dev</Badge>
+        <Badge variant="tagSand">Data</Badge>
+        <Badge variant="tagSand">Dev</Badge>
       </>
     ),
-    diagram: <AdminDraftsDiagram />,
+    diagram: <PriceToolDiagram />,
   },
 ];
