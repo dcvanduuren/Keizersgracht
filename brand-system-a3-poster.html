@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Poppins:wght@300;400;500;600;700&family=Sintony:wght@400;700&display=swap" rel="stylesheet">
   <style>
     @page {
-      size: 420mm 297mm; /* Exact A3 Landscape */
+      size: 420mm 297mm; /* A3 Landscape */
       margin: 0;
     }
     
@@ -28,13 +28,13 @@
       background-color: #FAF9F5;
       color: #351E1C;
       font-size: 8pt;
-      line-height: 1.45;
+      line-height: 1.5;
     }
 
     .poster {
       width: 420mm;
       height: 297mm;
-      padding: 13mm 16mm 11mm 16mm;
+      padding: 18mm 22mm 14mm 22mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -43,139 +43,79 @@
       box-sizing: border-box;
     }
 
-    /* Top Master Header */
+    /* Minimalist Master Header - matching Illustration Design System style */
     .poster-header {
-      border-bottom: 2px solid #351E1C;
-      padding-bottom: 10px;
-      margin-bottom: 12px;
+      margin-bottom: 16mm;
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
     }
 
-    .brand-eyebrow {
-      font-family: 'Poppins', sans-serif;
-      font-size: 8pt;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #733635;
-      font-weight: 600;
-      margin-bottom: 3px;
-    }
-
     .main-title {
       font-family: 'Sintony', serif, sans-serif;
-      font-size: 24pt;
+      font-size: 27pt;
       font-weight: 700;
       color: #351E1C;
       line-height: 1.05;
       letter-spacing: -0.02em;
+      margin-bottom: 4px;
     }
 
-    .header-meta {
-      display: flex;
-      gap: 22px;
-      align-items: center;
-    }
-
-    .meta-item {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      text-align: right;
-    }
-
-    .meta-label {
+    .sub-title {
       font-family: 'Poppins', sans-serif;
-      font-size: 7pt;
-      color: #733635;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-weight: 600;
-    }
-
-    .meta-value {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 8.5pt;
-      color: #351E1C;
+      font-size: 10.5pt;
       font-weight: 500;
+      color: #733635;
+      letter-spacing: 0.01em;
     }
 
-    /* 4-Column Grid */
+    .header-aside {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7.5pt;
+      color: #7B716A;
+      text-align: right;
+      line-height: 1.4;
+    }
+
+    /* 4-Column Floating Canvas Grid (No containers, completely minimal) */
     .grid-container {
       flex: 1;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      align-items: stretch;
+      gap: 16mm;
+      align-items: start;
       min-height: 0;
     }
 
     .col {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      background: #F5F4ED;
-      border: 1.5px solid #E4E0D6;
-      border-radius: 3px;
-      padding: 12px 13px 12px 13px;
-      box-shadow: 0 4px 14px rgba(115, 54, 53, 0.04);
-      overflow: hidden;
+      gap: 14px;
     }
 
-    .col-header {
-      border-bottom: 1.5px solid #E4E0D6;
-      padding-bottom: 7px;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: baseline;
-      gap: 7px;
-    }
-
-    .col-num {
+    .section-title {
       font-family: 'Poppins', sans-serif;
-      font-size: 11pt;
-      font-weight: 700;
-      color: #FF6037;
-    }
-
-    .col-title {
-      font-family: 'Sintony', sans-serif;
-      font-size: 11.5pt;
+      font-size: 9pt;
       font-weight: 700;
       color: #351E1C;
-      letter-spacing: -0.01em;
-    }
-
-    .col-body {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      flex: 1;
-      justify-content: space-between;
-    }
-
-    .section-block {
-      display: flex;
-      flex-direction: column;
-      gap: 3.5px;
-    }
-
-    .block-title {
-      font-size: 7.6pt;
-      font-weight: 700;
-      color: #733635;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      display: flex;
-      align-items: center;
-      gap: 5px;
+      letter-spacing: 0.08em;
+      margin-bottom: 2px;
+    }
+
+    .subsection-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 8.2pt;
+      font-weight: 600;
+      color: #351E1C;
+      margin-top: 4px;
+      margin-bottom: 2px;
     }
 
     p {
       color: #351E1C;
-      font-size: 7.5pt;
-      line-height: 1.42;
+      font-size: 7.7pt;
+      line-height: 1.5;
     }
 
     ul.bullet-list {
@@ -185,11 +125,15 @@
 
     ul.bullet-list li {
       position: relative;
-      padding-left: 10px;
-      margin-bottom: 3.5px;
-      font-size: 7.4pt;
-      line-height: 1.38;
+      padding-left: 11px;
+      margin-bottom: 6px;
+      font-size: 7.6pt;
+      line-height: 1.45;
       color: #351E1C;
+    }
+
+    ul.bullet-list li:last-child {
+      margin-bottom: 0;
     }
 
     ul.bullet-list li::before {
@@ -197,9 +141,9 @@
       position: absolute;
       left: 0;
       color: #733635;
-      font-size: 8.5pt;
+      font-size: 9pt;
       line-height: 1;
-      top: 0px;
+      top: -1px;
     }
 
     ul.bullet-list li strong {
@@ -207,351 +151,144 @@
       color: #351E1C;
     }
 
-    /* Badges & Tags */
-    .tag-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4px;
-      margin: 2px 0;
+    /* Minimal Tables matching Illustration System */
+    .clean-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 4px;
     }
 
-    .tag-item {
-      display: flex;
-      flex-direction: column;
-      background: #ECE8E1;
-      border: 1px solid #DCD7CD;
-      border-radius: 2px;
-      padding: 3px 6px;
-    }
-
-    .tag-item-name {
-      font-size: 7.2pt;
-      font-weight: 600;
-      color: #351E1C;
-    }
-
-    .tag-item-desc {
-      font-size: 6.2pt;
-      color: #733635;
-      line-height: 1.2;
-    }
-
-    /* Editorial Matrix (Say This / Not That) */
-    .voice-matrix {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      background: #ECE8E1;
-      border: 1px solid #DCD7CD;
-      border-radius: 2px;
-      padding: 6px 8px;
-    }
-
-    .voice-pair {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5px;
-      padding-bottom: 4px;
-      border-bottom: 1px solid #E2DDCF;
-    }
-
-    .voice-pair:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .voice-avoid {
-      font-size: 6.6pt;
-      color: #9E4A48;
-      text-decoration: line-through;
-      line-height: 1.25;
-    }
-
-    .voice-use {
+    .clean-table th {
+      text-align: left;
+      font-family: 'Poppins', sans-serif;
       font-size: 6.8pt;
-      color: #351E1C;
-      font-weight: 600;
-      line-height: 1.25;
-    }
-
-    /* Anti-Patterns Box */
-    .anti-pattern-box {
-      background: #FDF9F7;
-      border: 1px solid #E9C8C1;
-      border-left: 3px solid #733635;
-      border-radius: 2px;
-      padding: 5px 8px;
-    }
-
-    .anti-pattern-box ul li::before {
-      color: #733635;
-    }
-
-    /* Type Specimens */
-    .specimen-box {
-      background: #ECE8E1;
-      border: 1px solid #DCD7CD;
-      border-radius: 2px;
-      padding: 6px 8px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .specimen-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      border-bottom: 1px solid #E2DDCF;
-      padding-bottom: 3px;
-    }
-
-    .specimen-row:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .specimen-label {
-      font-size: 6.5pt;
       font-weight: 600;
       color: #733635;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #E2DDCF;
     }
 
-    .specimen-chars {
-      font-size: 7.5pt;
+    .clean-table td {
+      padding: 5px 0;
+      font-size: 7.4pt;
+      line-height: 1.35;
+      border-bottom: 1px solid #ECE8E1;
+      vertical-align: top;
       color: #351E1C;
     }
 
-    /* Typography Scale Table */
-    .type-scale-table {
-      display: flex;
-      flex-direction: column;
-      border: 1px solid #E4E0D6;
-      border-radius: 2px;
-      overflow: hidden;
-      background: #FAF9F5;
-    }
-
-    .type-scale-row {
-      display: grid;
-      grid-template-columns: 68px 1fr;
-      gap: 6px;
-      align-items: baseline;
-      padding: 3.5px 7px;
-      border-bottom: 1px solid #ECE8E1;
-    }
-
-    .type-scale-row:last-child {
+    .clean-table tr:last-child td {
       border-bottom: none;
     }
 
-    .ts-meta {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 6.2pt;
-      color: #733635;
-      line-height: 1.2;
-    }
-
-    .ts-sample {
-      color: #351E1C;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    /* Color Swatches Grid */
-    .color-spec-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .color-card {
+    .swatch-cell {
       display: flex;
       align-items: center;
-      gap: 8px;
-      background: #FAF9F5;
-      border: 1px solid #E4E0D6;
-      border-radius: 2px;
-      padding: 4px 7px;
+      gap: 7px;
     }
 
-    .color-swatch-chip {
-      width: 24px;
-      height: 24px;
+    .swatch-dot {
+      width: 12px;
+      height: 12px;
       border-radius: 2px;
+      border: 1px solid rgba(53, 30, 28, 0.15);
       flex-shrink: 0;
-      border: 1px solid rgba(53, 30, 28, 0.12);
     }
 
-    .color-details {
+    .code-font {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 6.8pt;
+      color: #733635;
+    }
+
+    /* Atmospheric Washes preview strip */
+    .wash-row {
       display: flex;
       flex-direction: column;
-      flex: 1;
-      min-width: 0;
+      gap: 3px;
+      margin-top: 5px;
     }
 
-    .color-title-line {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-    }
-
-    .color-name {
-      font-size: 7.5pt;
-      font-weight: 700;
-      color: #351E1C;
-    }
-
-    .color-hex {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 7pt;
-      color: #733635;
-      font-weight: 600;
-    }
-
-    .color-breakdown {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 5.8pt;
-      color: #7B716A;
-      line-height: 1.25;
-    }
-
-    .color-role-text {
-      font-size: 6.4pt;
-      color: #351E1C;
-      line-height: 1.2;
-      margin-top: 1px;
-    }
-
-    /* Gradients Block */
-    .grad-strip {
-      height: 19px;
+    .wash-strip {
+      height: 20px;
       border-radius: 2px;
-      margin-bottom: 3.5px;
-      border: 1px solid rgba(53, 30, 28, 0.1);
+      border: 1px solid rgba(53, 30, 28, 0.08);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 7px;
-      font-size: 6.5pt;
-      font-weight: 600;
+      padding: 0 8px;
+      font-size: 6.8pt;
+      font-weight: 500;
       color: #351E1C;
     }
 
-    .grad-stops {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 5.8pt;
-      color: #733635;
-      font-weight: 400;
-    }
-
-    /* Accessibility / Contrast Bar */
-    .contrast-box {
-      background: #ECE8E1;
-      border: 1px solid #DCD7CD;
-      border-radius: 2px;
-      padding: 5px 7px;
-      font-size: 6.5pt;
-      line-height: 1.35;
-      color: #351E1C;
-    }
-
-    /* DO / DON'T Geometry Diagram */
-    .chamfer-comparison {
+    /* Geometry diagram without heavy boxes */
+    .geometry-preview {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 6px;
-      margin: 2px 0;
+      gap: 8px;
+      margin: 6px 0 4px 0;
     }
 
-    .chamfer-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 6px 5px;
+    .geo-box {
       border: 1px solid #DCD7CD;
-      background: #ECE8E1;
+      padding: 7px 8px;
+      background: #FAF9F5;
     }
 
-    .chamfer-card.do-card {
+    .geo-box.approved {
       border-radius: 3px;
       border-color: #A0C9CB;
-      background: #F1F7F7;
+      background: rgba(160, 201, 203, 0.08);
     }
 
-    .chamfer-card.dont-card {
-      border-radius: 18px; /* Obvious pill bubble */
-      border-color: #E9C8C1;
-      background: #FDF7F6;
+    .geo-box.forbidden {
+      border-radius: 16px;
+      border-color: #E2BCB4;
+      background: rgba(255, 96, 55, 0.04);
     }
 
-    .chamfer-status {
+    .geo-label {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 6pt;
-      font-weight: 700;
-      letter-spacing: 0.08em;
+      font-size: 6.2pt;
+      font-weight: 600;
+      letter-spacing: 0.06em;
       margin-bottom: 2px;
     }
 
-    .do-card .chamfer-status {
-      color: #3B7274;
+    .geo-box.approved .geo-label {
+      color: #356062;
     }
 
-    .dont-card .chamfer-status {
-      color: #9E4A48;
+    .geo-box.forbidden .geo-label {
+      color: #A04A48;
     }
 
-    .chamfer-caption {
-      font-size: 6.2pt;
+    .geo-desc {
+      font-size: 6.6pt;
+      line-height: 1.25;
       color: #351E1C;
-      line-height: 1.2;
     }
 
-    /* Spatial Rhythm Bar */
-    .rhythm-scale {
+    /* Minimal CTA Anatomy */
+    .cta-preview {
       display: flex;
       align-items: center;
-      gap: 4px;
-      background: #ECE8E1;
-      border: 1px solid #DCD7CD;
-      border-radius: 2px;
-      padding: 4px 6px;
-    }
-
-    .rhythm-unit {
-      flex: 1;
-      text-align: center;
-      background: #FAF9F5;
-      border: 1px solid #DCD7CD;
-      border-radius: 1px;
-      padding: 2px 0;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 6pt;
-      color: #733635;
-      font-weight: 600;
-    }
-
-    /* Action Anatomy Specimen */
-    .anatomy-card {
-      background: #ECE8E1;
-      border: 1px solid #DCD7CD;
-      border-radius: 3px;
-      padding: 6px 8px;
-      display: flex;
       justify-content: space-between;
-      align-items: center;
+      border-top: 1px solid #ECE8E1;
+      border-bottom: 1px solid #ECE8E1;
+      padding: 6px 0;
+      margin: 4px 0;
     }
 
-    .anatomy-cta {
+    .cta-button {
       background: #FF6037;
       color: #FAF9F5;
-      padding: 4.5px 11px;
+      padding: 4px 10px;
       border-radius: 2px;
-      font-size: 7.2pt;
+      font-size: 6.8pt;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -560,431 +297,323 @@
       gap: 5px;
     }
 
-    /* Photography Box */
-    .photo-guideline-box {
-      background: #FAF9F5;
-      border: 1px solid #E4E0D6;
-      border-radius: 2px;
-      padding: 5px 7px;
-    }
-
-    /* Footer */
+    /* Minimalist Footer matching Illustration System */
     .poster-footer {
-      border-top: 1.5px solid #351E1C;
-      padding-top: 7px;
+      border-top: 1px solid #DCD7CD;
+      padding-top: 8px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 7.2pt;
+      font-size: 7.5pt;
       color: #733635;
-      font-weight: 600;
-      letter-spacing: 0.05em;
+      font-weight: 500;
     }
   </style>
 </head>
 <body>
 
   <div class="poster">
-    <!-- Header -->
+    <!-- Master Header -->
     <header class="poster-header">
       <div>
-        <div class="brand-eyebrow">Keizersgracht Media • Visual Standards Broadsheet</div>
         <h1 class="main-title">Visual Identity &amp; System Guidelines</h1>
+        <div class="sub-title">Keizersgracht Media | Version 1.0</div>
       </div>
-      <div class="header-meta">
-        <div class="meta-item">
-          <span class="meta-label">Format</span>
-          <span class="meta-value">A3 Broadsheet (420×297mm)</span>
-        </div>
-        <div class="meta-item">
-          <span class="meta-label">Version</span>
-          <span class="meta-value">v1.0 (2026)</span>
-        </div>
-        <div class="meta-item">
-          <span class="meta-label">Application</span>
-          <span class="meta-value">Web · Physical · Brand</span>
-        </div>
+      <div class="header-aside">
+        <div>BROADSHEET REFERENCE</div>
+        <div>A3 LANDSCAPE • 420 × 297mm</div>
+        <div>DIGITAL &amp; PHYSICAL SPECIFICATION</div>
       </div>
     </header>
 
-    <!-- 4-Column Grid -->
+    <!-- 4-Column Floating Grid -->
     <main class="grid-container">
 
       <!-- ==================== COLUMN 1 ==================== -->
       <section class="col">
-        <div class="col-header">
-          <span class="col-num">01</span>
-          <span class="col-title">Brand &amp; Voice</span>
+        <div>
+          <div class="section-title">00 GUIDING PRINCIPLE</div>
+          <p>
+            These guidelines are a compass, not a rulebook. We build software, AI agents, and data tools around how teams actually work. Our visual identity reflects that: grounded, unpretentious, and human. Whether designing a website, an internal tool, or physical collateral, keep it clear, tactile, and free of agency fluff.
+          </p>
         </div>
 
-        <div class="col-body">
-          <div class="section-block">
-            <div class="block-title">00 Guiding Principle</div>
-            <p>
-              A compass, not a rulebook. We build software, AI agents, and data tools around how teams actually operate. Our visual identity reflects that: grounded, unpretentious, and human. Whether designing a client dashboard, marketing website, or print stationery, keep every touchpoint tactile, functional, and devoid of agency fluff.
-            </p>
-          </div>
+        <div>
+          <div class="section-title">01 BRAND AND VOICE</div>
+          <ul class="bullet-list">
+            <li><strong>Two senior operators.</strong> Direct communication and real flexibility. No account managers, no six-month slide-deck phases, no corporate overhead.</li>
+            <li><strong>Speak like a person.</strong> Be direct, warm, and conversational. Write like you speak over coffee.</li>
+            <li><strong>Active outcomes.</strong> Lead with what the software accomplishes (<em>"Turning incoming messages into ready-to-send replies"</em>). Avoid speculative tech jargon.</li>
+            <li><strong>No synthetic hype.</strong> Ban fake percentage badges ("+340% ROI"), made-up latency counters, and synthetic ISO badges. Real utility needs no hype.</li>
+            <li><strong>Human in the loop.</strong> When presenting automation, always show the human review, verification, and approval step before action executes.</li>
+          </ul>
+        </div>
 
-          <div class="section-block">
-            <div class="block-title">Team Structure &amp; Ethos</div>
-            <p style="font-size: 7.3pt; color: #733635; font-weight: 500;">
-              <strong>Two senior operators:</strong> Direct client-to-builder collaboration. No account managers, no six-month slide decks, no synthetic buzzwords.
-            </p>
-          </div>
+        <div>
+          <div class="subsection-title">The sweet spot</div>
+          <p style="font-size: 7.4pt; margin-bottom: 5px;">
+            Replace inflated marketing claims with simple, grounded sentences:
+          </p>
+          <ul class="bullet-list">
+            <li><em>"Software that organizes incoming orders and drafts replies."</em> (Not: "Enterprise cognitive AI synergy platform").</li>
+            <li><em>"Tools built around the way your team actually works."</em> (Not: "Revolutionizing human workflows via neural pipelines").</li>
+          </ul>
+        </div>
 
-          <div class="section-block">
-            <div class="block-title">Core Personality Attributes</div>
-            <div class="tag-grid">
-              <div class="tag-item">
-                <span class="tag-item-name">Grounded</span>
-                <span class="tag-item-desc">Rooted in operational reality</span>
-              </div>
-              <div class="tag-item">
-                <span class="tag-item-name">Practical</span>
-                <span class="tag-item-desc">Utility over speculative hype</span>
-              </div>
-              <div class="tag-item">
-                <span class="tag-item-name">Collaborative</span>
-                <span class="tag-item-desc">Working directly alongside teams</span>
-              </div>
-              <div class="tag-item">
-                <span class="tag-item-name">Helpful</span>
-                <span class="tag-item-desc">Reducing cognitive burden</span>
-              </div>
-              <div class="tag-item">
-                <span class="tag-item-name">Approachable</span>
-                <span class="tag-item-desc">Warm, plainspoken, Dutch craft</span>
-              </div>
-              <div class="tag-item">
-                <span class="tag-item-name">Small on Purpose</span>
-                <span class="tag-item-desc">Agile, personal, high focus</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="section-block">
-            <div class="block-title">Voice &amp; Tone Rules</div>
-            <ul class="bullet-list">
-              <li><strong>Speak like a person:</strong> Be direct, warm, and conversational. Write like you speak over coffee.</li>
-              <li><strong>Active verbs:</strong> Lead with what software does (<em>"Turning incoming messages into ready-to-send replies"</em>).</li>
-              <li><strong>No synthetic metrics:</strong> Ban fake percentage badges and vanity stats. Real utility requires no hype.</li>
-              <li><strong>Human-in-the-loop:</strong> When presenting automation, always showcase the human verification and sign-off step.</li>
-            </ul>
-          </div>
-
-          <div class="section-block">
-            <div class="block-title">Editorial Voice Matrix</div>
-            <div class="voice-matrix">
-              <div class="voice-pair">
-                <div class="voice-avoid">"Enterprise-grade cognitive AI synergy platform"</div>
-                <div class="voice-use">"Software that organizes incoming orders and drafts replies."</div>
-              </div>
-              <div class="voice-pair">
-                <div class="voice-avoid">"Revolutionizing human capital via neural pipelines"</div>
-                <div class="voice-use">"Tools built around the way your team actually works."</div>
-              </div>
-              <div class="voice-pair">
-                <div class="voice-avoid">"Autonomous seamless omnichannel orchestration"</div>
-                <div class="voice-use">"Direct integrations that stop manual copy-pasting."</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="section-block">
-            <div class="block-title">Visual Anti-Patterns</div>
-            <div class="anti-pattern-box">
-              <ul class="bullet-list" style="margin-bottom: 0;">
-                <li><strong>No generic AI tropes:</strong> Never use neon glowing orbs, floating 3D plastic cubes, or purple/indigo gradients.</li>
-                <li><strong>No cartoon people:</strong> Show human teams through their tools, data views, or documentary photography.</li>
-                <li><strong>No bloated bentos:</strong> Avoid decorative card mosaics packed with meaningless icon filler.</li>
-              </ul>
-            </div>
-          </div>
+        <div>
+          <div class="subsection-title">Visual anti-patterns</div>
+          <ul class="bullet-list">
+            <li><strong>No generic AI tropes.</strong> Never use glowing neon orbs, floating plastic cubes, or purple/indigo gradients.</li>
+            <li><strong>No cartoon people.</strong> Show human teams through the tools they use or the data they inspect.</li>
+            <li><strong>No bloated bentos.</strong> Avoid decorative card mosaics packed with meaningless icon filler; let actual tasks dictate layout.</li>
+          </ul>
         </div>
       </section>
 
       <!-- ==================== COLUMN 2 ==================== -->
       <section class="col">
-        <div class="col-header">
-          <span class="col-num">02</span>
-          <span class="col-title">Typography &amp; Scale</span>
+        <div>
+          <div class="section-title">02 TYPOGRAPHY AND HIERARCHY</div>
+          <p>
+            A clear three-tier system: geometric Dutch humanist display for structure, neutral geometric sans for reading, and crisp monospace for technical values.
+          </p>
+          <ul class="bullet-list" style="margin-top: 6px;">
+            <li><strong>Display — Sintony Bold (700):</strong> Architectural geometric sans with Dutch humanist weight. Reserved for hero statements, H1/H2 titles, and focal numbers.</li>
+            <li><strong>Body &amp; UI — Poppins (400, 500, 600):</strong> Open geometric sans with high legibility across screens and print. Regular for body, Medium for subtitles, SemiBold for UI controls.</li>
+            <li><strong>Metadata — JetBrains Mono (500):</strong> Crisp monospace for technical tags, hex values, tracking stats, and micro-labels.</li>
+          </ul>
         </div>
 
-        <div class="col-body">
-          <div class="section-block">
-            <div class="block-title">Primary Font Families</div>
-            <ul class="bullet-list">
-              <li><strong>Display — Sintony Bold:</strong> Architectural geometric sans with Dutch humanist weight. Used for hero statements, H1/H2 titles, and focal numbers.</li>
-              <li><strong>Body &amp; UI — Poppins:</strong> Open, legible geometric sans across screen DPIs and offset print. Regular 400 for text, Medium 500 for subtitles, SemiBold 600 for UI.</li>
-              <li><strong>Technical — JetBrains Mono:</strong> Crisp monospace for data tokens, status flags, code, and micro-labels.</li>
-            </ul>
-          </div>
+        <div>
+          <div class="subsection-title">Typescale reference</div>
+          <table class="clean-table">
+            <thead>
+              <tr>
+                <th style="width: 20%;">Role</th>
+                <th style="width: 27%;">Size / Leading</th>
+                <th>Sample</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Hero</strong></td>
+                <td class="code-font">80px / 1.08</td>
+                <td style="font-family: 'Sintony'; font-weight: 700; font-size: 11pt; line-height: 1;">Light work.</td>
+              </tr>
+              <tr>
+                <td><strong>H1 Title</strong></td>
+                <td class="code-font">38px / 1.12</td>
+                <td style="font-family: 'Sintony'; font-weight: 700; font-size: 8.2pt; line-height: 1.1;">Turning incoming messages.</td>
+              </tr>
+              <tr>
+                <td><strong>H2 Subtitle</strong></td>
+                <td class="code-font">20px / 1.45</td>
+                <td style="font-family: 'Poppins'; font-weight: 500; font-size: 7.5pt; color: #733635;">Software built around your team.</td>
+              </tr>
+              <tr>
+                <td><strong>Body</strong></td>
+                <td class="code-font">14px / 1.70</td>
+                <td style="font-size: 7.2pt;">AI and software that fit how you operate.</td>
+              </tr>
+              <tr>
+                <td><strong>Eyebrow</strong></td>
+                <td class="code-font">11px / +0.14em</td>
+                <td style="font-size: 6.4pt; font-weight: 600; color: #733635; text-transform: uppercase; letter-spacing: 0.14em;">01 — WORKFLOW AUTOMATION</td>
+              </tr>
+              <tr>
+                <td><strong>Metadata</strong></td>
+                <td class="code-font">10.5px / Mono</td>
+                <td class="code-font" style="font-size: 6.4pt;">STATUS: 200 OK · RUN_ID: #885b1d81</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-          <div class="section-block">
-            <div class="block-title">Font Specimen Previews</div>
-            <div class="specimen-box">
-              <div class="specimen-row">
-                <span class="specimen-label">Sintony 700</span>
-                <span class="specimen-chars" style="font-family: 'Sintony'; font-weight: 700;">Aa Bb Cc Gg Rr 0 1 2 3 4 5</span>
-              </div>
-              <div class="specimen-row">
-                <span class="specimen-label">Poppins 500</span>
-                <span class="specimen-chars" style="font-family: 'Poppins'; font-weight: 500;">Aa Bb Cc Gg Rr &amp; % / + =</span>
-              </div>
-              <div class="specimen-row">
-                <span class="specimen-label">JB Mono 500</span>
-                <span class="specimen-chars" style="font-family: 'JetBrains Mono'; font-weight: 500; font-size: 6.8pt; color: #733635;">0x2F [READY] 14:02 #FF6037</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="section-block">
-            <div class="block-title">Typescale &amp; Hierarchy</div>
-            <div class="type-scale-table">
-              <div class="type-scale-row">
-                <div class="ts-meta">HERO<br>80px / 1.08</div>
-                <div class="ts-sample" style="font-family: 'Sintony'; font-weight: 700; font-size: 13.5pt;">Light work.</div>
-              </div>
-              <div class="type-scale-row">
-                <div class="ts-meta">H1 TITLE<br>38px / 1.12</div>
-                <div class="ts-sample" style="font-family: 'Sintony'; font-weight: 700; font-size: 10pt;">Turning incoming messages.</div>
-              </div>
-              <div class="type-scale-row">
-                <div class="ts-meta">H2 SUBTITLE<br>20px / 1.45</div>
-                <div class="ts-sample" style="font-family: 'Poppins'; font-weight: 500; font-size: 8.5pt; color: #733635;">Software built around your team.</div>
-              </div>
-              <div class="type-scale-row">
-                <div class="ts-meta">BODY<br>14px / 1.70</div>
-                <div class="ts-sample" style="font-family: 'Poppins'; font-weight: 400; font-size: 7.8pt;">AI and software that fit how you operate.</div>
-              </div>
-              <div class="type-scale-row">
-                <div class="ts-meta">EYEBROW<br>11px / +0.14em</div>
-                <div class="ts-sample" style="font-family: 'Poppins'; font-weight: 600; font-size: 6.8pt; color: #733635; text-transform: uppercase; letter-spacing: 0.14em;">01 — WORKFLOW AUTOMATION</div>
-              </div>
-              <div class="type-scale-row">
-                <div class="ts-meta">CODE / META<br>10.5px / Mono</div>
-                <div class="ts-sample" style="font-family: 'JetBrains Mono'; font-weight: 500; font-size: 6.6pt; color: #351E1C;">LATENCY: 14ms · RUN_ID: #885b1d81</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="section-block">
-            <div class="block-title">Universal Typesetting Rules</div>
-            <ul class="bullet-list">
-              <li><strong>Sentence case standard:</strong> Use natural sentence case for all headlines, subheads, and buttons. Reject aggressive Title Casing.</li>
-              <li><strong>Tracked caps exception:</strong> Uppercase is permitted ONLY for eyebrows and micro-tags; always track with <code style="font-family: 'JetBrains Mono'; font-size: 6.5pt; color: #733635;">+0.12em</code> to <code style="font-family: 'JetBrains Mono'; font-size: 6.5pt; color: #733635;">+0.18em</code>.</li>
-              <li><strong>Tabular numbers:</strong> In UI dashboards, tables, and metric counters, enable <code style="font-family: 'JetBrains Mono'; font-size: 6.5pt; color: #733635;">font-variant-numeric: tabular-nums</code>.</li>
-              <li><strong>Line measure:</strong> Keep running editorial text between 45 and 70 characters per line to guarantee comfortable reading cadence.</li>
-              <li><strong>Container breathing room:</strong> Never crowd text against container edges. Maintain tested vertical padding on all cards.</li>
-            </ul>
-          </div>
+        <div>
+          <div class="subsection-title">Typesetting rules</div>
+          <ul class="bullet-list">
+            <li><strong>Sentence case:</strong> Use natural sentence case for all headlines, subheads, and buttons. Avoid aggressive Title Casing.</li>
+            <li><strong>Tracked caps:</strong> Eyebrows and micro-tags always use uppercase with tracking set between <span class="code-font">+0.12em</span> and <span class="code-font">+0.18em</span>.</li>
+            <li><strong>Tabular numbers:</strong> In UI dashboards, tables, and metric displays, always enable <span class="code-font">font-variant-numeric: tabular-nums</span>.</li>
+            <li><strong>Line measure:</strong> Keep running editorial text between 45 and 70 characters per line for comfortable cadence.</li>
+            <li><strong>Container breathing room:</strong> Never squeeze text against borders. Always size cards with enough vertical padding so trailing lines sit naturally.</li>
+          </ul>
         </div>
       </section>
 
       <!-- ==================== COLUMN 3 ==================== -->
       <section class="col">
-        <div class="col-header">
-          <span class="col-num">03</span>
-          <span class="col-title">Color Architecture</span>
+        <div>
+          <div class="section-title">03 COLOR TOKENS AND SURFACES</div>
+          <p>
+            Six foundational tokens rooted in warm mineral materials. Canvas replaces sterile white with the tactile quality of uncoated paper.
+          </p>
+          <table class="clean-table" style="margin-top: 6px;">
+            <thead>
+              <tr>
+                <th style="width: 24%;">Token</th>
+                <th style="width: 22%;">Hex</th>
+                <th>Used for</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="swatch-cell">
+                    <div class="swatch-dot" style="background: #F5F4ED;"></div>
+                    <span>Canvas</span>
+                  </div>
+                </td>
+                <td class="code-font">#F5F4ED</td>
+                <td>Page background, primary substrate, card fill</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="swatch-cell">
+                    <div class="swatch-dot" style="background: #ECE8E1;"></div>
+                    <span>Sand</span>
+                  </div>
+                </td>
+                <td class="code-font">#ECE8E1</td>
+                <td>Secondary cards, founder surfaces, warm neutral</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="swatch-cell">
+                    <div class="swatch-dot" style="background: #351E1C;"></div>
+                    <span>Espresso</span>
+                  </div>
+                </td>
+                <td class="code-font">#351E1C</td>
+                <td>Titles (Sintony Bold), main body text, active borders</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="swatch-cell">
+                    <div class="swatch-dot" style="background: #733635;"></div>
+                    <span>Terracotta</span>
+                  </div>
+                </td>
+                <td class="code-font">#733635</td>
+                <td>Subtitles, captions, metadata, hairline dividers</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="swatch-cell">
+                    <div class="swatch-dot" style="background: #FF6037;"></div>
+                    <span>Coral</span>
+                  </div>
+                </td>
+                <td class="code-font">#FF6037</td>
+                <td>Primary action buttons, active pins, focal emphasis</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="swatch-cell">
+                    <div class="swatch-dot" style="background: #A0C9CB;"></div>
+                    <span>Aqua</span>
+                  </div>
+                </td>
+                <td class="code-font">#A0C9CB</td>
+                <td>Data pathways, water vectors, secondary tool accents</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
-        <div class="col-body">
-          <div class="section-block">
-            <div class="block-title">Material Palette Specifications</div>
-            <div class="color-spec-grid">
-              
-              <div class="color-card">
-                <div class="color-swatch-chip" style="background: #F5F4ED;"></div>
-                <div class="color-details">
-                  <div class="color-title-line">
-                    <span class="color-name">Canvas</span>
-                    <span class="color-hex">#F5F4ED</span>
-                  </div>
-                  <div class="color-breakdown">RGB: 245, 244, 237 · CMYK: 2, 2, 6, 0</div>
-                  <div class="color-role-text">Primary substrate, paper stock, card background wash</div>
-                </div>
-              </div>
-
-              <div class="color-card">
-                <div class="color-swatch-chip" style="background: #ECE8E1;"></div>
-                <div class="color-details">
-                  <div class="color-title-line">
-                    <span class="color-name">Sand (Alabaster)</span>
-                    <span class="color-hex">#ECE8E1</span>
-                  </div>
-                  <div class="color-breakdown">RGB: 236, 232, 225 · CMYK: 5, 5, 9, 2</div>
-                  <div class="color-role-text">Secondary cards, founder surfaces, warm track neutral</div>
-                </div>
-              </div>
-
-              <div class="color-card">
-                <div class="color-swatch-chip" style="background: #351E1C;"></div>
-                <div class="color-details">
-                  <div class="color-title-line">
-                    <span class="color-name">Espresso</span>
-                    <span class="color-hex">#351E1C</span>
-                  </div>
-                  <div class="color-breakdown">RGB: 53, 30, 28 · CMYK: 45, 65, 62, 68</div>
-                  <div class="color-role-text">Primary ink, titles, main body, high-contrast borders</div>
-                </div>
-              </div>
-
-              <div class="color-card">
-                <div class="color-swatch-chip" style="background: #733635;"></div>
-                <div class="color-details">
-                  <div class="color-title-line">
-                    <span class="color-name">Terracotta</span>
-                    <span class="color-hex">#733635</span>
-                  </div>
-                  <div class="color-breakdown">RGB: 115, 54, 53 · CMYK: 30, 75, 65, 35</div>
-                  <div class="color-role-text">Eyebrows, subtitles, metadata tags, hairline dividers</div>
-                </div>
-              </div>
-
-              <div class="color-card">
-                <div class="color-swatch-chip" style="background: #FF6037;"></div>
-                <div class="color-details">
-                  <div class="color-title-line">
-                    <span class="color-name">Coral</span>
-                    <span class="color-hex">#FF6037</span>
-                  </div>
-                  <div class="color-breakdown">RGB: 255, 96, 55 · CMYK: 0, 75, 80, 0</div>
-                  <div class="color-role-text">Focal action CTA, active pins, single focal point per viewport</div>
-                </div>
-              </div>
-
-              <div class="color-card">
-                <div class="color-swatch-chip" style="background: #A0C9CB;"></div>
-                <div class="color-details">
-                  <div class="color-title-line">
-                    <span class="color-name">Aqua</span>
-                    <span class="color-hex">#A0C9CB</span>
-                  </div>
-                  <div class="color-breakdown">RGB: 160, 201, 203 · CMYK: 30, 5, 15, 5</div>
-                  <div class="color-role-text">Data vectors, water pathways, secondary tool highlights</div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <div class="section-block">
-            <div class="block-title">Atmospheric Washes (Live Website)</div>
-            <p style="font-size: 6.8pt; color: #7B716A; margin-bottom: 2px;">
-              Subtle horizontal mineral washes used across live case study sections:
-            </p>
-            <div class="grad-strip" style="background: linear-gradient(90deg, #F5F4ED 0%, #F9BCA8 55%, #ECE8E1 100%);">
+        <div>
+          <div class="subsection-title">Atmospheric washes (live site)</div>
+          <p style="font-size: 7.3pt; margin-bottom: 4px;">
+            Grounded horizontal mineral washes used across case study sections:
+          </p>
+          <div class="wash-row">
+            <div class="wash-strip" style="background: linear-gradient(90deg, #F5F4ED 0%, #F9BCA8 55%, #ECE8E1 100%);">
               <span>01 Soft Coral (Workflow &amp; Process)</span>
-              <span class="grad-stops">#F5F4ED → #F9BCA8 → #ECE8E1</span>
+              <span class="code-font">#F5F4ED → #F9BCA8 → #ECE8E1</span>
             </div>
-            <div class="grad-strip" style="background: linear-gradient(90deg, #F5F4ED 0%, #C2DAD9 55%, #ECE8E1 100%);">
+            <div class="wash-strip" style="background: linear-gradient(90deg, #F5F4ED 0%, #C2DAD9 55%, #ECE8E1 100%);">
               <span>02 Mineral Aqua (Clean Water Agency)</span>
-              <span class="grad-stops">#F5F4ED → #C2DAD9 → #ECE8E1</span>
+              <span class="code-font">#F5F4ED → #C2DAD9 → #ECE8E1</span>
             </div>
-            <div class="grad-strip" style="background: linear-gradient(90deg, #F5F4ED 0%, #D7C8C3 55%, #ECE8E1 100%);">
+            <div class="wash-strip" style="background: linear-gradient(90deg, #F5F4ED 0%, #D7C8C3 55%, #ECE8E1 100%);">
               <span>03 Limestone Wash (Pricing Tool)</span>
-              <span class="grad-stops">#F5F4ED → #D7C8C3 → #ECE8E1</span>
+              <span class="code-font">#F5F4ED → #D7C8C3 → #ECE8E1</span>
             </div>
           </div>
+        </div>
 
-          <div class="section-block">
-            <div class="block-title">Contrast &amp; Substrate Hierarchy</div>
-            <div class="contrast-box">
-              <strong>Contrast verification:</strong> Espresso on Canvas provides <strong>14.2:1 (AAA)</strong>. Terracotta on Canvas provides <strong>7.1:1 (AAA)</strong>. Coral on Espresso achieves <strong>4.8:1 (AA)</strong>.<br>
-              <strong>Print paper specification:</strong> For stationery and physical cards, specify 450–600gsm uncoated warm cotton stock (FSC-certified). Avoid synthetic high-gloss lamination.
-            </div>
-          </div>
+        <div>
+          <div class="subsection-title">Material honesty &amp; print stock</div>
+          <ul class="bullet-list">
+            <li><strong>Digital interfaces:</strong> Should feel like heavyweight matte paper, not glossy plastic. Avoid synthetic glassmorphism and specular glows.</li>
+            <li><strong>Print collateral:</strong> In stationery, cards, and packaging, specify 450–600gsm uncoated warm cotton stock (FSC-certified). Blind deboss or spot terracotta ink.</li>
+            <li><strong>Contrast:</strong> Espresso on Canvas achieves 14.2:1 (AAA). Terracotta on Canvas achieves 7.1:1 (AAA). Coral is reserved for interactive actions.</li>
+          </ul>
         </div>
       </section>
 
       <!-- ==================== COLUMN 4 ==================== -->
       <section class="col">
-        <div class="col-header">
-          <span class="col-num">04</span>
-          <span class="col-title">System &amp; Collateral</span>
+        <div>
+          <div class="section-title">04 CORNER RADII AND SYSTEM</div>
+          <p>
+            We reject rounded-full pill shapes and generic 20px bubble cards. Keizersgracht relies on an architectural micro-radius:
+          </p>
+          <div class="geometry-preview">
+            <div class="geo-box approved">
+              <div class="geo-label">✔ APPROVED SPEC</div>
+              <div class="geo-desc"><strong>2px – 3px radius</strong><br>Architectural micro-chamfer</div>
+            </div>
+            <div class="geo-box forbidden">
+              <div class="geo-label">✖ FORBIDDEN</div>
+              <div class="geo-desc"><strong>16px+ / Pill radius</strong><br>Generic SaaS bubble shape</div>
+            </div>
+          </div>
+          <ul class="bullet-list" style="margin-top: 5px;">
+            <li><strong>Cards:</strong> <span class="code-font">3px</span> radius, with a warm shadow: <span class="code-font">0 10px 24px rgba(115, 54, 53, 0.08)</span>.</li>
+            <li><strong>Checkboxes, buttons, controls:</strong> <span class="code-font">2px</span> radius.</li>
+            <li><strong>Skeleton and chart bars:</strong> <span class="code-font">1px</span> radius.</li>
+            <li><strong>Never use fully rounded pill shapes.</strong></li>
+          </ul>
         </div>
 
-        <div class="col-body">
-          <div class="section-block">
-            <div class="block-title">The Micro-Chamfer Rule</div>
-            <p>
-              We firmly reject rounded-full pill shapes and generic 20px bubble cards. Keizersgracht relies on an architectural micro-radius:
-            </p>
-            <div class="chamfer-comparison">
-              <div class="chamfer-card do-card">
-                <span class="chamfer-status">✔ APPROVED SPEC</span>
-                <span class="chamfer-caption"><strong>2px – 3px radius</strong><br>Sharp, tactile, architectural micro-chamfer</span>
-              </div>
-              <div class="chamfer-card dont-card">
-                <span class="chamfer-status">✖ FORBIDDEN</span>
-                <span class="chamfer-caption"><strong>16px+ / Pill radius</strong><br>Generic SaaS bubble shape, strictly banned</span>
-              </div>
-            </div>
-            <ul class="bullet-list" style="margin-top: 3px;">
-              <li><strong>Cards &amp; dialog sheets:</strong> <code style="font-family: 'JetBrains Mono'; font-size: 6.6pt; color: #733635;">3px</code> radius with subtle warm shadow <code style="font-family: 'JetBrains Mono'; font-size: 6.4pt; color: #733635;">0 10px 24px rgba(115, 54, 53, 0.08)</code>.</li>
-              <li><strong>Buttons, inputs, tags:</strong> <code style="font-family: 'JetBrains Mono'; font-size: 6.6pt; color: #733635;">2px</code> radius.</li>
-              <li><strong>Micro-rules &amp; bars:</strong> <code style="font-family: 'JetBrains Mono'; font-size: 6.6pt; color: #733635;">1px</code> radius.</li>
-            </ul>
-          </div>
-
-          <div class="section-block">
-            <div class="block-title">Spatial 8-Point Rhythm</div>
-            <div class="rhythm-scale">
-              <div class="rhythm-unit">8px</div>
-              <div class="rhythm-unit">16px</div>
-              <div class="rhythm-unit">24px</div>
-              <div class="rhythm-unit">32px</div>
-              <div class="rhythm-unit">48px</div>
-              <div class="rhythm-unit">64px</div>
-            </div>
-            <p style="font-size: 6.8pt; color: #7B716A; margin-top: 2px;">
-              All layout margins, card padding, and flex gaps derive strictly from multiples of 8px.
-            </p>
-          </div>
-
-          <div class="section-block">
-            <div class="block-title">Primary Action Anatomy</div>
-            <div class="anatomy-card">
-              <div style="display: flex; flex-direction: column;">
-                <span style="font-size: 7.2pt; font-weight: 700; color: #351E1C;">Interactive Trigger</span>
-                <span style="font-family: 'JetBrains Mono'; font-size: 6.2pt; color: #733635;">radius: 2px · #FF6037</span>
-              </div>
-              <div class="anatomy-cta">
-                <span>Grab a coffee</span>
-                <span style="font-size: 8pt; line-height: 1;">→</span>
-              </div>
+        <div>
+          <div class="subsection-title">Spatial 8-point rhythm</div>
+          <p style="font-size: 7.4pt; margin-bottom: 4px;">
+            All layout margins, card padding, and flex gaps derive strictly from multiples of 8px (<span class="code-font">8, 16, 24, 32, 48, 64px</span>).
+          </p>
+          <div class="cta-preview">
+            <span style="font-size: 7.2pt; color: #733635; font-weight: 500;">Action button (2px radius)</span>
+            <div class="cta-button">
+              <span>Grab a coffee</span>
+              <span style="font-size: 7.5pt; line-height: 1;">→</span>
             </div>
           </div>
+        </div>
 
-          <div class="section-block">
-            <div class="block-title">Photography &amp; Visual Media</div>
-            <div class="photo-guideline-box">
-              <p style="font-size: 7.1pt; line-height: 1.35;">
-                <strong>Documentary realism:</strong> Real founders, physical team spaces, and operational workflows only. Strict rectangular crops with zero rounded corners and zero vignette fade.
-              </p>
-              <p style="font-size: 6.8pt; color: #733635; margin-top: 2px;">
-                <strong>Warm mineral grade:</strong> Layered with a <strong>3% warm Coral tint</strong> (<code style="font-family: 'JetBrains Mono'; font-size: 6.2pt;">rgba(255, 96, 55, 0.03)</code>) and hairline border (<code style="font-family: 'JetBrains Mono'; font-size: 6.2pt;">rgba(53, 30, 28, 0.08)</code>).
-              </p>
-            </div>
-          </div>
+        <div>
+          <div class="subsection-title">Photography &amp; visual media</div>
+          <ul class="bullet-list">
+            <li><strong>Documentary realism:</strong> Real founders, physical team spaces, and operational workflows only. Strict rectangular crops with zero rounded corners and zero vignette fade.</li>
+            <li><strong>Warm mineral grade:</strong> Layered with a 3% warm Coral tint (<span class="code-font">rgba(255, 96, 55, 0.03)</span>) and a hairline border (<span class="code-font">rgba(53, 30, 28, 0.08)</span>).</li>
+          </ul>
+        </div>
 
-          <div class="section-block">
-            <div class="block-title">Universal Collateral Guidelines</div>
-            <ul class="bullet-list">
-              <li><strong>Material honesty:</strong> Digital interfaces simulate heavyweight matte paper stock. Never use synthetic glassmorphism or high-gloss reflections.</li>
-              <li><strong>Cross-media consistency:</strong> Whether rendering a web application, an internal terminal, a business card, or branded packaging, adhere to the 3px micro-chamfer and 8px rhythm.</li>
-            </ul>
-          </div>
+        <div>
+          <div class="subsection-title">Universal collateral rules</div>
+          <ul class="bullet-list">
+            <li><strong>Cross-media consistency:</strong> Whether designing an internal dashboard, client portal, or physical letterhead, adhere to the 3px micro-chamfer and 8px rhythm.</li>
+            <li><strong>Less, but tactile:</strong> White space is functional breathing room, not empty void. Let content sit comfortably on the canvas.</li>
+          </ul>
         </div>
       </section>
 
     </main>
 
-    <!-- Footer -->
+    <!-- Master Footer matching Illustration System -->
     <footer class="poster-footer">
-      <span>KEIZERSGRACHT MEDIA • DESIGN STANDARDS &amp; BRAND SYSTEM BROADSHEET</span>
-      <span>SPECIFICATION: A3 LANDSCAPE (420mm × 297mm) • STRICT MICRO-CHAMFER (2–3px)</span>
-      <span>VERSION 1.0 (2026) • ZERO PILLS • 8px BASE SYSTEM</span>
+      <span>KEIZERSGRACHT MEDIA | Visual Identity &amp; System Guidelines v1.0</span>
+      <span>A3 Broadsheet • 420 × 297mm • Strict Micro-Chamfer &amp; 8px Base System</span>
     </footer>
   </div>
 
