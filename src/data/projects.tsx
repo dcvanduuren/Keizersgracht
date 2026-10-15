@@ -23,7 +23,7 @@ export const projects: Project[] = [
     eyebrowTone: "coral",
     title: "Turning incoming messages into ready-to-send replies.",
     description:
-      "Whether clients reach out via email for a complex construction quote or message on WhatsApp to check class availability, our custom AI agents handle the admin work—analyzing intent, checking your live planning or pricing rules, and drafting accurate replies for your team to review and send in one click.",
+      "We build custom AI agents for companies that automate their inbound client communications. Whether inquiries arrive via email, WhatsApp, or web forms, our agents handle the admin legwork—analyzing intent, cross-checking live schedules and pricing rules, and preparing accurate drafts for your team to review and send in one click.",
     descriptionClassName: "text-taupe",
     gradientClassName: "bg-gradient-coral",
     tags: (

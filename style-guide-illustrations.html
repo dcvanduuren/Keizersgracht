@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Keizersgracht Media - Technical Schematic Design Guidelines</title>
+  <title>Illustration Design System - Keizersgracht Media | Version 3.1</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Poppins:wght@300;400;500;600;700&family=Sintony:wght@400;700&display=swap" rel="stylesheet">
   <style>
     @page {
       size: A4 portrait;
-      margin: 18mm 18mm 18mm 18mm;
+      margin: 0;
     }
     
     * {
@@ -24,19 +24,22 @@
       font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background-color: #FAF9F5;
       color: #351E1C;
-      font-size: 10pt;
-      line-height: 1.6;
+      font-size: 9.5pt;
+      line-height: 1.55;
     }
 
     .sheet {
-      page-break-after: always;
-      height: 258mm; /* Exact printable height for A4 (297mm - 36mm margins) */
-      max-height: 258mm;
+      width: 210mm;
+      height: 297mm;
+      max-height: 297mm;
+      padding: 22mm 24mm 20mm 24mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      overflow: hidden;
+      page-break-after: always;
       position: relative;
+      background-color: #FAF9F5;
+      overflow: hidden;
     }
 
     .sheet:last-of-type {
@@ -47,718 +50,545 @@
       flex: 1;
     }
 
-    /* Header & Branding */
-    .header-bar {
-      border-bottom: 2px solid #351E1C;
-      padding-bottom: 12px;
-      margin-bottom: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
+    /* Headings */
+    .doc-header {
+      margin-bottom: 24px;
     }
 
-    .brand-eyebrow {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 8.5pt;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: #733635;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .doc-title {
-      font-family: 'Sintony', serif, sans-serif;
-      font-size: 21pt;
+    .main-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 23pt;
       font-weight: 700;
       color: #351E1C;
       line-height: 1.15;
       letter-spacing: -0.02em;
+      margin-bottom: 4px;
     }
 
-    .meta-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 8pt;
+    .main-subtitle {
+      font-size: 10pt;
       color: #733635;
-      background: #ECECDC;
-      padding: 5px 10px;
-      border-radius: 2px;
-      border: 1px solid #DFDFCE;
-      text-align: right;
-      line-height: 1.35;
+      font-weight: 500;
     }
 
-    .doc-subtitle {
-      font-size: 10.5pt;
-      color: #733635;
-      margin-bottom: 20px;
-      line-height: 1.5;
-    }
-
-    /* Section Styling */
-    .section-title {
-      font-family: 'Sintony', sans-serif;
-      font-size: 12.5pt;
+    .section-heading {
+      font-family: 'Poppins', sans-serif;
+      font-size: 11pt;
       font-weight: 700;
-      color: #351E1C;
-      margin-top: 18px;
+      letter-spacing: 0.05em;
+      margin-top: 20px;
       margin-bottom: 10px;
       display: flex;
-      align-items: center;
-      gap: 10px;
-      border-bottom: 1px solid #ECECDC;
-      padding-bottom: 6px;
+      align-items: baseline;
+      gap: 8px;
     }
 
-    .section-num {
-      background: #351E1C;
-      color: #F5F4ED;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 9pt;
+    .sec-num {
+      color: #733635;
+    }
+
+    .sec-title {
+      color: #351E1C;
+    }
+
+    .sub-heading {
+      font-size: 10pt;
       font-weight: 600;
-      width: 22px;
-      height: 22px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 2px;
+      color: #351E1C;
+      margin-top: 14px;
+      margin-bottom: 6px;
+    }
+
+    .sub-caption {
+      font-size: 8.5pt;
+      color: #733635;
+      margin-top: -2px;
+      margin-bottom: 10px;
+      line-height: 1.4;
     }
 
     p {
-      font-size: 9.5pt;
-      color: #4A3B39;
-      line-height: 1.55;
-      margin-bottom: 10px;
-    }
-
-    strong {
-      color: #351E1C;
-      font-weight: 600;
-    }
-
-    code {
-      font-family: 'JetBrains Mono', monospace;
-      background: #ECECDC;
-      padding: 1.5px 5px;
-      border-radius: 2px;
-      font-size: 8.5pt;
-      color: #733635;
-      border: 1px solid #DFDFCC;
-    }
-
-    ul {
-      margin-left: 18px;
-      margin-top: 6px;
       margin-bottom: 12px;
+      color: #351E1C;
+      font-size: 9pt;
+      line-height: 1.55;
     }
 
-    li {
-      font-size: 9.5pt;
-      color: #4A3B39;
-      margin-bottom: 6px;
-      line-height: 1.5;
-    }
-
-    /* Cards */
-    .card {
-      background: #F5F4ED;
-      border: 1.5px solid #ECECDC;
-      border-radius: 3px;
-      padding: 14px 18px;
-      margin-top: 10px;
+    /* Custom bullet lists */
+    ul.bullet-list {
+      list-style: none;
+      padding-left: 0;
       margin-bottom: 14px;
-      box-shadow: 0 4px 14px rgba(115, 54, 53, 0.05);
     }
 
-    /* 3-Act Diagram Visual */
-    .narrative-diagram {
-      display: grid;
-      grid-template-columns: 1fr 28px 1.2fr 28px 1fr;
-      align-items: center;
-      gap: 8px;
-      background: #FFFFFF;
-      border: 1.5px solid #ECECDC;
-      border-radius: 3px;
-      padding: 16px 14px;
-      margin: 14px 0;
-      box-shadow: 0 4px 14px rgba(115, 54, 53, 0.04);
-    }
-
-    .act-card {
-      background: #F5F4ED;
-      border: 1px solid #ECECDC;
-      border-radius: 3px;
-      padding: 12px;
-    }
-
-    .act-header {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 7.5pt;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .act-header.act1 { color: #733635; }
-    .act-header.act2 { color: #205E60; }
-    .act-header.act3 { color: #D13E14; }
-
-    .act-title {
-      font-family: 'Sintony', sans-serif;
-      font-size: 9.5pt;
-      font-weight: 700;
-      color: #351E1C;
-      margin-bottom: 6px;
-    }
-
-    .act-desc {
-      font-size: 8pt;
-      color: #5C4F4D;
-      line-height: 1.4;
-    }
-
-    .act-arrow {
-      text-align: center;
-      color: #733635;
-      font-size: 15pt;
-      font-weight: 700;
-    }
-
-    /* Spatial Specifications Grid */
-    .spatial-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 10px;
-    }
-
-    .spatial-card {
-      background: #FFFFFF;
-      border: 1.5px solid #ECECDC;
-      border-radius: 3px;
-      padding: 12px 14px;
-    }
-
-    .spatial-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 8pt;
-      font-weight: 700;
-      color: #733635;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 4px;
-    }
-
-    /* Color Palette Grid Table */
-    .palette-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 14px 0 20px 0;
-      border: 1.5px solid #ECECDC;
-      border-radius: 3px;
-      overflow: hidden;
-      font-size: 9pt;
-      box-shadow: 0 4px 14px rgba(115, 54, 53, 0.04);
-    }
-
-    .palette-table th {
-      background: #ECECDC;
-      color: #351E1C;
-      font-family: 'JetBrains Mono', monospace;
-      text-align: left;
-      padding: 8px 12px;
-      font-size: 8pt;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    .palette-table td {
-      padding: 9px 12px;
-      border-top: 1px solid #ECECDC;
-      background: #FFFFFF;
-      vertical-align: middle;
-    }
-
-    .swatch-box {
-      width: 24px;
-      height: 24px;
-      border-radius: 2px;
-      border: 1px solid rgba(0,0,0,0.14);
-      display: inline-block;
-      vertical-align: middle;
-      margin-right: 10px;
-    }
-
-    .swatch-name-cell {
-      display: flex;
-      align-items: center;
-      font-weight: 600;
-      color: #351E1C;
-    }
-
-    /* Chamfer & Primitives */
-    .primitives-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin: 12px 0 16px 0;
-    }
-
-    .chamfer-demo-box {
-      border: 1.5px solid #351E1C;
-      background: #F5F4ED;
-      padding: 12px 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .skeleton-bar-demo {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      padding: 12px 14px;
-      background: #FFFFFF;
-      border: 1.5px solid #ECECDC;
-      border-radius: 3px;
-    }
-
-    .s-bar {
-      height: 5px;
-      border-radius: 1px;
-    }
-
-    .badge-demo {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      padding: 3px 8px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 7.5pt;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      border-radius: 2px;
-    }
-
-    .badge-coral {
-      background: #FF6037;
-      color: #FFFFFF;
-    }
-
-    .badge-aqua {
-      background: #A0C9CB;
-      color: #1A3638;
-    }
-
-    .badge-sand {
-      background: #ECECDC;
-      color: #351E1C;
-      border: 1px solid #D6D6C4;
-    }
-
-    /* Typography specimen table */
-    .type-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 10px 0 16px 0;
-      border: 1px solid #ECECDC;
-      border-radius: 3px;
-      overflow: hidden;
-      font-size: 8.5pt;
-    }
-
-    .type-table th {
-      background: #ECECDC;
-      color: #351E1C;
-      font-family: 'JetBrains Mono', monospace;
-      text-align: left;
-      padding: 6px 10px;
-      font-size: 7.5pt;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .type-table td {
-      padding: 8px 10px;
-      border-top: 1px solid #ECECDC;
-      background: #FFFFFF;
-      vertical-align: middle;
-    }
-
-    /* Dos and Donts */
-    .dos-donts-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-top: 12px;
-    }
-
-    .rule-card {
-      padding: 14px 16px;
-      border-radius: 3px;
-    }
-
-    .rule-card.dos {
-      background: #F1F7F4;
-      border: 1.5px solid #A8D4BC;
-    }
-
-    .rule-card.donts {
-      background: #FDF4F3;
-      border: 1.5px solid #EBBDBA;
-    }
-
-    .rule-card-title {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 9pt;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+    ul.bullet-list li {
+      position: relative;
+      padding-left: 15px;
       margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      font-size: 9pt;
+      line-height: 1.5;
+      color: #351E1C;
     }
 
-    .rule-card.dos .rule-card-title { color: #1B6639; }
-    .rule-card.donts .rule-card-title { color: #A82424; }
-
-    .rule-card ul {
-      margin-left: 14px;
-      margin-bottom: 0;
+    ul.bullet-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: -1px;
+      color: #351E1C;
+      font-size: 11pt;
     }
 
-    .rule-card li {
-      font-size: 8.5pt;
-      margin-bottom: 6px;
-      line-height: 1.4;
+    ul.bullet-list li strong {
+      font-weight: 600;
+      color: #351E1C;
     }
 
     /* Footer */
     .page-footer {
       border-top: 1px solid #ECECDC;
-      padding-top: 8px;
+      padding-top: 12px;
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 7.5pt;
+      font-size: 8pt;
       color: #733635;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    /* Diagram containers on Page 2 */
+    .diagram-box {
+      width: 100%;
+      height: 142px;
+      background: #F5F4ED;
+      border: 1px solid #ECECDC;
+      border-radius: 3px;
+      margin: 10px 0 12px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Table on Page 3 */
+    .token-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 20px 0;
+      font-size: 9pt;
+    }
+
+    .token-table th {
+      text-align: left;
+      font-size: 8.5pt;
+      font-weight: 600;
+      color: #733635;
+      letter-spacing: 0.04em;
+      padding-bottom: 8px;
+      border-bottom: 1.5px solid #ECECDC;
+    }
+
+    .token-table td {
+      padding: 9px 0;
+      border-bottom: 1px solid #ECECDC;
+      vertical-align: middle;
+    }
+
+    .swatch-chip {
+      width: 24px;
+      height: 24px;
+      border-radius: 2px;
+      display: inline-block;
+      margin-right: 12px;
+      vertical-align: middle;
+    }
+
+    .token-name {
+      font-weight: 600;
+      color: #351E1C;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .token-hex {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8.5pt;
+      color: #733635;
+      background: #ECECDC/50;
+    }
+
+    .timing-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 9pt;
+    }
+
+    .timing-table td {
+      padding: 10px 0;
+      border-bottom: 1px solid #ECECDC;
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    .timing-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .timing-label {
+      width: 110px;
+      font-weight: 600;
+      color: #351E1C;
     }
   </style>
 </head>
 <body>
 
-  <!-- ================= PAGE 1 ================= -->
+  <!-- ==================== PAGE 1 ==================== -->
   <div class="sheet">
     <div class="sheet-content">
-      <div class="header-bar">
-        <div>
-          <div class="brand-eyebrow">Keizersgracht Media • Design System</div>
-          <h1 class="doc-title">Technical Schematic Visual Language</h1>
-        </div>
-        <div class="meta-tag">
-          VERSION 1.0<br>
-          SPECIFICATION GUIDE
-        </div>
+      <div class="doc-header">
+        <h1 class="main-title">Illustration Design System</h1>
+        <div class="main-subtitle">Keizersgracht Media | Version 3.1</div>
       </div>
 
-      <div class="doc-subtitle">
-        Design standards, spatial parameters, and UI abstractions for creating editorial software architecture diagrams and case study illustrations.
+      <div class="section-heading">
+        <span class="sec-num">00</span>
+        <span class="sec-title">GUIDING PRINCIPLE</span>
       </div>
+      <p>
+        These guidelines are a compass, not a rulebook. Every illustration should tell a clear story that lets a website visitor understand a project's real-world impact in about three seconds. Change the layout, the number of nodes, or the structure (including the 3-act format) whenever a project needs it. Start every new illustration from its own brief and treat everything below as reference, not as the answer.
+      </p>
 
-      <!-- Section 1 -->
-      <div class="section-title">
-        <span class="section-num">1</span>
-        Core Philosophy: The “Living Blueprint”
+      <div class="section-heading">
+        <span class="sec-num">01</span>
+        <span class="sec-title">FINDING THE RIGHT LEVEL OF ABSTRACTION</span>
       </div>
-      <p>Illustrations in the Keizersgracht Media visual universe are <strong>never</strong> generic SaaS doodles, clip art, or glossy 3D renders. They represent an <strong>abstracted architectural blueprint of software</strong>:</p>
-      
-      <div class="card">
-        <ul>
-          <li><strong>Tangible & Honest:</strong> Visually communicate the exact logic of modern software—inputs, data states, validation gates, and human review steps.</li>
-          <li><strong>Minimalist UI Abstraction:</strong> Interface states are suggested via skeleton bars, floating cards, status chips, and data tokens—never literal full-screen browser chrome or low-res app screenshots.</li>
-          <li><strong>Warm Editorial Craft:</strong> Grounded in warm paper tones, technical hairline strokes, and tactile micro-chamfers rather than synthetic cold tech gradients.</li>
-        </ul>
-      </div>
+      <ul class="bullet-list">
+        <li><strong>Too literal.</strong> Don't put dense paragraphs or full app screenshots inside cards. It overwhelms the eye and makes the section hard to glance at.</li>
+        <li><strong>Too vague.</strong> Don't rely on unlabeled skeleton lines or made-up technical jargon and metrics. Visitors shouldn't have to guess what the software does.</li>
+        <li><strong>The sweet spot.</strong> Combine simple visual elements (stepped graphs, progress blocks, checklists) with one short, real-world sentence or question. If the text is generated, cut it off with "..." before it gets into detail.</li>
+      </ul>
 
-      <!-- Section 2 -->
-      <div class="section-title">
-        <span class="section-num">2</span>
-        The 3-Act Narrative Structure
-      </div>
-      <p>Every diagram must tell an immediate visual story flowing <strong>from left to right</strong>:</p>
+      <div class="sub-heading">Core rules</div>
+      <ul class="bullet-list">
+        <li><strong>Floating canvas.</strong> Illustrations sit on a transparent container with no outer box, so cards and connectors float directly on the page background.</li>
+        <li><strong>No cartoon people.</strong> Show human actors (field teams, operations staff, institutions) through the tools they use or the screens they look at.</li>
+        <li><strong>Center-heavy silhouette.</strong> Outer cards stay compact and the middle card is slightly larger, which gives the layout a gentle rhythm.</li>
+        <li><strong>Canvas and sizing.</strong> Desktop uses a standard 960×480 frame (centerline y = 240) that unwraps into a vertical stack on mobile. Always size cards with enough breathing room so text and elements never press against borders.</li>
+      </ul>
 
-      <div class="narrative-diagram">
-        <div class="act-card">
-          <div class="act-header act1">Act 1: Entry</div>
-          <div class="act-title">Raw Input</div>
-          <div class="act-desc">Unstructured data, customer requests, floor plans, sensor streams.</div>
-        </div>
-        <div class="act-arrow">→</div>
-        <div class="act-card" style="background:#F0F6F6; border-color:#D0E2E3;">
-          <div class="act-header act2">Act 2: Studio Craft</div>
-          <div class="act-title">Rules & Processing</div>
-          <div class="act-desc">AI complexity analysis, logic engine, verified database validation.</div>
-        </div>
-        <div class="act-arrow">→</div>
-        <div class="act-card" style="background:#FFF5F2; border-color:#FFDDD4;">
-          <div class="act-header act3">Act 3: Outcome</div>
-          <div class="act-title">Tangible Output</div>
-          <div class="act-desc">Fixed project price (€), instant human-approved draft, verified sanitation score.</div>
-        </div>
+      <div class="section-heading">
+        <span class="sec-num">02</span>
+        <span class="sec-title">TWO EXAMPLES FOR REFERENCE</span>
       </div>
-
-      <!-- Section 3 -->
-      <div class="section-title">
-        <span class="section-num">3</span>
-        Spatial System & Canvas Dimensions
-      </div>
-      <p>All illustrations adhere to a responsive mathematical coordinate grid:</p>
-      
-      <div class="spatial-grid">
-        <div class="spatial-card">
-          <div class="spatial-label">Desktop Master Canvas</div>
-          <p style="font-size:8.5pt; margin:0;"><strong><code>960px × 480px</code></strong> (strict 2:1 aspect ratio). Encapsulated in <code>&lt;ScaledCanvas width={960} height={480}&gt;</code> for seamless vector downscaling on tablets and laptops.</p>
-        </div>
-        <div class="spatial-card">
-          <div class="spatial-label">Mobile Stacking Logic</div>
-          <p style="font-size:8.5pt; margin:0;">On viewports below <code>768px</code>, horizontal flows automatically stack vertically, transitioning connectors to downward paths (<code>&lt;DownArrow /&gt;</code>).</p>
-        </div>
-      </div>
-      <p style="margin-top: 10px; font-size: 8.5pt; color: #5C4F4D;">
-        • <strong>Breathing Margins:</strong> Maintain at least <code>48px</code> interior padding from canvas boundaries.<br>
-        • <strong>Node Spacing:</strong> Spacing between primary nodes is fixed between <code>32px</code> and <code>48px</code> horizontally.
+      <p>
+        These are examples, not templates, and not the end product you should aim for. For every new illustration, read the brief first: what does the project do, who is looking, and what should they understand? Then choose the structure that tells that story best. That could be one of these, a mix, or something quite different (more cards, fewer, another flow). Placeholder content is used below.
       </p>
     </div>
 
     <div class="page-footer">
-      <span>KEIZERSGRACHT MEDIA • STYLE GUIDE</span>
-      <span>PAGE 1 OF 3</span>
+      <span>KEIZERSGRACHT MEDIA | Illustration Design System v3.1</span>
+      <span>Page 1</span>
     </div>
   </div>
 
-
-  <!-- ================= PAGE 2 ================= -->
+  <!-- ==================== PAGE 2 ==================== -->
   <div class="sheet">
     <div class="sheet-content">
-      <div class="header-bar">
-        <div>
-          <div class="brand-eyebrow">Keizersgracht Media • Design System</div>
-          <div style="font-family:'Sintony', sans-serif; font-size:15pt; font-weight:700; color:#351E1C;">Color System & Geometric Specifications</div>
-        </div>
-        <div class="meta-tag">PAGE 2 OF 3</div>
+      <div class="sub-heading" style="font-size: 11pt; margin-top: 0;">Example A: Linear pipeline</div>
+      <div class="sub-caption">Fits workflows where something comes in, gets processed, and produces a result (intake, routing, automated drafting).</div>
+
+      <!-- Diagram A -->
+      <div class="diagram-box">
+        <svg width="440" height="110" viewBox="0 0 440 110" fill="none">
+          <!-- Card 1 -->
+          <g transform="translate(20, 16)">
+            <rect width="84" height="78" rx="3" fill="#F5F4ED" stroke="#ECECDC" stroke-width="1.5" />
+            <text x="10" y="18" fill="#733635" font-family="Poppins" font-size="6.5" font-weight="600" letter-spacing="0.05em">INPUT</text>
+            <rect x="10" y="26" width="14" height="14" rx="1.5" fill="#ECECDC" />
+            <rect x="10" y="47" width="64" height="3" rx="1" fill="#351E1C" />
+            <rect x="10" y="54" width="46" height="3" rx="1" fill="#ECECDC" />
+            <text x="42" y="88" fill="#733635" font-family="Poppins" font-size="6" text-anchor="middle">~145px</text>
+          </g>
+
+          <!-- Connector 1 -->
+          <line x1="104" y1="55" x2="166" y2="55" stroke="#733635" stroke-width="1.5" stroke-dasharray="3 3" />
+          <circle cx="104" cy="55" r="2.5" fill="#733635" />
+          <rect x="163" y="52.5" width="5" height="5" rx="1" fill="#351E1C" />
+          <circle cx="135" cy="55" r="3" fill="#A0C9CB" />
+
+          <!-- Card 2 -->
+          <g transform="translate(166, 8)">
+            <rect width="112" height="94" rx="3" fill="#F5F4ED" stroke="#ECECDC" stroke-width="1.5" />
+            <text x="10" y="16" fill="#733635" font-family="Poppins" font-size="6.5" font-weight="600" letter-spacing="0.05em">PROCESSOR</text>
+            <!-- Row 1 -->
+            <rect x="10" y="24" width="7" height="7" rx="1" fill="#351E1C" />
+            <rect x="22" y="26" width="54" height="3" rx="1" fill="#351E1C" />
+            <rect x="80" y="24" width="22" height="7" rx="1" fill="#ECECDC" />
+            <!-- Row 2 -->
+            <rect x="10" y="37" width="7" height="7" rx="1" fill="#A0C9CB" />
+            <rect x="22" y="39" width="48" height="3" rx="1" fill="#A0C9CB" />
+            <!-- Row 3 -->
+            <rect x="10" y="50" width="7" height="7" rx="1" fill="#ECECDC" />
+            <rect x="22" y="52" width="62" height="3" rx="1" fill="#ECECDC" />
+            <!-- Row 4 -->
+            <rect x="10" y="63" width="7" height="7" rx="1" fill="#ECECDC" />
+            <rect x="22" y="65" width="52" height="3" rx="1" fill="#ECECDC" />
+            <text x="56" y="104" fill="#733635" font-family="Poppins" font-size="6" text-anchor="middle">~200px</text>
+          </g>
+
+          <!-- Connector 2 -->
+          <line x1="278" y1="55" x2="336" y2="55" stroke="#733635" stroke-width="1.5" stroke-dasharray="3 3" />
+          <circle cx="278" cy="55" r="2.5" fill="#733635" />
+          <rect x="333" y="52.5" width="5" height="5" rx="1" fill="#351E1C" />
+          <circle cx="307" cy="55" r="3" fill="#351E1C" />
+
+          <!-- Card 3 -->
+          <g transform="translate(336, 16)">
+            <rect width="90" height="78" rx="3" fill="#F5F4ED" stroke="#ECECDC" stroke-width="1.5" />
+            <text x="10" y="18" fill="#733635" font-family="Poppins" font-size="6.5" font-weight="600" letter-spacing="0.05em">OUTPUT</text>
+            <rect x="10" y="27" width="70" height="24" rx="1.5" fill="#ECECDC" fill-opacity="0.4" />
+            <rect x="14" y="33" width="58" height="2.5" rx="1" fill="#351E1C" />
+            <rect x="14" y="39" width="44" height="2.5" rx="1" fill="#A0C9CB" />
+            <rect x="14" y="45" width="30" height="2.5" rx="1" fill="#ECECDC" />
+            <!-- Action Button -->
+            <rect x="42" y="57" width="38" height="12" rx="1.5" fill="#FF6037" />
+            <text x="61" y="65" fill="#F5F4ED" font-family="Poppins" font-size="5.5" font-weight="600" text-anchor="middle">ACTION</text>
+            <text x="45" y="88" fill="#733635" font-family="Poppins" font-size="6" text-anchor="middle">~195px</text>
+          </g>
+        </svg>
       </div>
 
-      <!-- Section 4 -->
-      <div class="section-title" style="margin-top: 0;">
-        <span class="section-num">4</span>
-        Color Palette & Semantic Roles
-      </div>
-      <p>Colors carry functional meaning. Never apply colors decoratively outside their established roles:</p>
+      <ul class="bullet-list" style="margin-bottom: 22px;">
+        <li><strong>Card 1, Input (~145px):</strong> cycles through three states of the same kind of input, each showing a short example such as "Example question?" Keep transitions fresh—whether using a crisp vertical flip, slide, or fade.</li>
+        <li><strong>Card 2, Processor (~200px):</strong> a 4-row checklist with 10x10px checkboxes (2px radius). Row 1 stays checked in every state. Rows 2 to 4 switch on and off in sync with Card 1.</li>
+        <li><strong>Card 3, Output (~195px):</strong> types out a one-sentence reply that matches the input, cuts off with "..." (for example "Thanks for getting in touch, here is what we can do..."), then pulses the coral action button.</li>
+        <li><strong>Connectors:</strong> Keep the signal transfer clearly visible to the spectator (a well-defined traveling pulse or terminal ping) so people can easily track cause and effect without straining to see it.</li>
+      </ul>
 
-      <table class="palette-table">
+      <div class="sub-heading" style="font-size: 11pt; margin-top: 14px;">Example B: Hub-and-spoke map</div>
+      <div class="sub-caption">Fits field data collection, geographic networks, and reporting to several stakeholders.</div>
+
+      <!-- Diagram B -->
+      <div class="diagram-box">
+        <svg width="440" height="110" viewBox="0 0 440 110" fill="none">
+          <!-- Act 1: Entry -->
+          <g transform="translate(16, 22)">
+            <rect width="66" height="66" rx="3" fill="#F5F4ED" stroke="#ECECDC" stroke-width="1.5" />
+            <text x="8" y="16" fill="#733635" font-family="Poppins" font-size="6" font-weight="600">ENTRY</text>
+            <rect x="8" y="24" width="50" height="2" rx="1" fill="#351E1C" />
+            <rect x="8" y="30" width="38" height="2" rx="1" fill="#ECECDC" />
+            <rect x="8" y="36" width="28" height="2" rx="1" fill="#ECECDC" />
+          </g>
+
+          <!-- Line Entry -> Hub -->
+          <line x1="82" y1="55" x2="160" y2="55" stroke="#733635" stroke-width="1.5" stroke-dasharray="3 3" />
+
+          <!-- Center Map Hub -->
+          <g transform="translate(160, 5)">
+            <circle cx="50" cy="50" r="48" fill="#ECECDC" fill-opacity="0.3" stroke="#ECECDC" stroke-width="1" />
+            <!-- Streets -->
+            <line x1="15" y1="50" x2="85" y2="50" stroke="#351E1C" stroke-width="1" stroke-opacity="0.5" />
+            <line x1="50" y1="15" x2="50" y2="85" stroke="#351E1C" stroke-width="1" stroke-opacity="0.5" />
+            <path d="M20 70 Q 50 35 80 40" stroke="#A0C9CB" stroke-width="2" fill="none" />
+            <!-- Nodes -->
+            <rect x="32" y="34" width="7" height="7" rx="1.5" fill="#FF6037" />
+            <rect x="58" y="28" width="7" height="7" rx="1.5" fill="#FF6037" />
+            <rect x="38" y="60" width="7" height="7" rx="1.5" fill="#ECECDC" stroke="#733635" stroke-width="1" />
+            <rect x="64" y="58" width="7" height="7" rx="1.5" fill="#ECECDC" stroke="#733635" stroke-width="1" />
+            <!-- Popup -->
+            <g transform="translate(48, -2)">
+              <rect width="36" height="16" rx="2" fill="#F5F4ED" stroke="#ECECDC" stroke-width="1" />
+              <text x="18" y="8" fill="#733635" font-family="Poppins" font-size="4.5" text-anchor="middle">POPUP</text>
+              <rect x="6" y="11" width="6" height="2" rx="0.5" fill="#A0C9CB" />
+              <rect x="15" y="11" width="8" height="2" rx="0.5" fill="#351E1C" />
+            </g>
+            <text x="50" y="103" fill="#733635" font-family="Poppins" font-size="5" text-anchor="middle">~360px radial mask</text>
+          </g>
+
+          <!-- Lines Hub -> Spectators -->
+          <line x1="260" y1="42" x2="310" y2="30" stroke="#733635" stroke-width="1.5" stroke-dasharray="3 3" />
+          <line x1="260" y1="68" x2="310" y2="80" stroke="#733635" stroke-width="1.5" stroke-dasharray="3 3" />
+
+          <!-- Spectator 1 -->
+          <g transform="translate(310, 10)">
+            <rect width="114" height="38" rx="3" fill="#F5F4ED" stroke="#ECECDC" stroke-width="1.5" />
+            <text x="8" y="12" fill="#733635" font-family="Poppins" font-size="5.5" font-weight="600">SPECTATOR 1</text>
+            <!-- 8 Squares -->
+            <g transform="translate(8, 18)">
+              <rect x="0" y="0" width="8" height="8" rx="1" fill="#FF6037" />
+              <rect x="11" y="0" width="8" height="8" rx="1" fill="#FF6037" />
+              <rect x="22" y="0" width="8" height="8" rx="1" fill="#FF6037" />
+              <rect x="33" y="0" width="8" height="8" rx="1" fill="#FF6037" />
+              <rect x="44" y="0" width="8" height="8" rx="1" fill="#ECECDC" />
+              <rect x="55" y="0" width="8" height="8" rx="1" fill="#ECECDC" />
+              <rect x="66" y="0" width="8" height="8" rx="1" fill="#ECECDC" />
+              <rect x="77" y="0" width="8" height="8" rx="1" fill="#ECECDC" />
+            </g>
+          </g>
+
+          <!-- Spectator 2 -->
+          <g transform="translate(310, 58)">
+            <rect width="114" height="44" rx="3" fill="#F5F4ED" stroke="#ECECDC" stroke-width="1.5" />
+            <text x="8" y="12" fill="#733635" font-family="Poppins" font-size="5.5" font-weight="600">SPECTATOR 2</text>
+            <!-- 3 Bars -->
+            <g transform="translate(20, 18)">
+              <rect x="0" y="6" width="10" height="14" rx="1" fill="#A0C9CB" />
+              <rect x="18" y="2" width="10" height="18" rx="1" fill="#351E1C" />
+              <rect x="36" y="10" width="10" height="10" rx="1" fill="#733635" />
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <ul class="bullet-list">
+        <li><strong>Act 1, Entry card (~140px):</strong> a small card with a simple icon and a 3-row abstract checklist, connected to the map by a dashed line.</li>
+        <li><strong>Act 2, Map hub (~360px circle):</strong> a simplified map (1px Espresso streets, an Aqua water line, building footprints) inside a radial fade mask: <code style="font-family: 'JetBrains Mono'; font-size: 8pt; color: #733635;">radial-gradient(circle, #000 48%, transparent 72%)</code>. Four clickable squares (2px radius) turn Coral one by one. The active square opens a floating popup with a small stepped sparkline or bar chart, with no numbers.</li>
+        <li><strong>Act 3, Two spectator cards:</strong> the top card shows a row of 8 squares that turn Coral as items join, with a one-line caption. The bottom card shows 3 bars (Aqua and Espresso) that change height as the map advances, also with a one-line caption.</li>
+      </ul>
+    </div>
+
+    <div class="page-footer">
+      <span>KEIZERSGRACHT MEDIA | Illustration Design System v3.1</span>
+      <span>Page 2</span>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 3 ==================== -->
+  <div class="sheet">
+    <div class="sheet-content">
+      <div class="section-heading" style="margin-top: 0;">
+        <span class="sec-num">03</span>
+        <span class="sec-title">COLOR TOKENS AND CORNER RADII</span>
+      </div>
+
+      <table class="token-table">
         <thead>
           <tr>
-            <th style="width: 22%;">Token</th>
-            <th style="width: 17%;">Hex Code</th>
-            <th style="width: 61%;">Semantic Role in Illustrations</th>
+            <th style="width: 130px;">Token</th>
+            <th style="width: 100px;">Hex</th>
+            <th>Used for</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><div class="swatch-name-cell"><span class="swatch-box" style="background:#F5F4ED;"></span>Canvas</div></td>
-            <td><code>#F5F4ED</code></td>
-            <td>Primary fill for cards, nested panes, and tactile background blocks.</td>
+            <td>
+              <span class="swatch-chip" style="background: #F5F4ED; border: 1px solid #ECECDC;"></span>
+              <span class="token-name">Canvas</span>
+            </td>
+            <td><span class="token-hex">#F5F4ED</span></td>
+            <td>Page background, card fill, floating popups</td>
           </tr>
           <tr>
-            <td><div class="swatch-name-cell"><span class="swatch-box" style="background:#ECECDC;"></span>Sand</div></td>
-            <td><code>#ECECDC</code></td>
-            <td>Secondary container fill, container border strokes, inactive UI nodes.</td>
+            <td>
+              <span class="swatch-chip" style="background: #ECECDC;"></span>
+              <span class="token-name">Sand</span>
+            </td>
+            <td><span class="token-hex">#ECECDC</span></td>
+            <td>Card borders (1.5px), unvisited map nodes, empty chart tracks, subtle bubbles</td>
           </tr>
           <tr>
-            <td><div class="swatch-name-cell"><span class="swatch-box" style="background:#351E1C;"></span>Espresso</div></td>
-            <td><code>#351E1C</code></td>
-            <td>Primary typography, high-contrast headline data bars, and structural icons.</td>
+            <td>
+              <span class="swatch-chip" style="background: #351E1C;"></span>
+              <span class="token-name">Espresso</span>
+            </td>
+            <td><span class="token-hex">#351E1C</span></td>
+            <td>Titles (Sintony Bold, 13 to 14px), icons, active checkboxes, main chart bars, map grid (1px)</td>
           </tr>
           <tr>
-            <td><div class="swatch-name-cell"><span class="swatch-box" style="background:#733635;"></span>Terracotta</div></td>
-            <td><code>#733635</code></td>
-            <td>Secondary notes, technical captions, logic rules, and connector labels.</td>
+            <td>
+              <span class="swatch-chip" style="background: #733635;"></span>
+              <span class="token-name">Terracotta</span>
+            </td>
+            <td><span class="token-hex">#733635</span></td>
+            <td>Captions and micro-labels (Poppins, 11px), dashed connectors (1.5px, dash 3 3)</td>
           </tr>
           <tr>
-            <td><div class="swatch-name-cell"><span class="swatch-box" style="background:#FF6037;"></span>Coral</div></td>
-            <td><code>#FF6037</code></td>
-            <td><strong>The Action Accent:</strong> Ready states, active step pill, approved draft badges. Strict limit: 1–2 spots per illustration.</td>
+            <td>
+              <span class="swatch-chip" style="background: #A0C9CB;"></span>
+              <span class="token-name">Aqua</span>
+            </td>
+            <td><span class="token-hex">#A0C9CB</span></td>
+            <td>Water vectors, stepped sparklines, secondary bars, active checklist highlights</td>
           </tr>
           <tr>
-            <td><div class="swatch-name-cell"><span class="swatch-box" style="background:#A0C9CB;"></span>Aqua</div></td>
-            <td><code>#A0C9CB</code></td>
-            <td><strong>The Machine / AI State:</strong> Algorithmic parsing chips, AI analysis highlights, clean water/data pipeline states.</td>
+            <td>
+              <span class="swatch-chip" style="background: #FF6037;"></span>
+              <span class="token-name">Coral</span>
+            </td>
+            <td><span class="token-hex">#FF6037</span></td>
+            <td>Primary action buttons, active map pins, cumulative participation blocks</td>
           </tr>
         </tbody>
       </table>
 
-      <!-- Section 5 -->
-      <div class="section-title">
-        <span class="section-num">5</span>
-        Geometry & The Architectural Chamfer
-      </div>
-      <p>To avoid generic modern SaaS roundness ("AI slop"), corners use precise micro-radii:</p>
-
-      <div class="primitives-grid">
-        <div class="chamfer-demo-box" style="border-radius: 3px;">
-          <div style="display:flex; justify-content:space-between; align-items:center;">
-            <strong style="font-size: 9pt;">Container Chamfer</strong>
-            <code>rounded-[3px]</code>
-          </div>
-          <p style="font-size:8pt; margin:0;">Outer cards, floating windows, and major diagram panes use <strong>3px</strong> radius. Clean, structural, and tactile.</p>
-          <div style="margin-top:4px; display:flex; gap:6px;">
-            <span class="badge-demo badge-sand" style="border-radius:2px;">Tag: rounded-[2px]</span>
-            <span class="badge-demo badge-coral" style="border-radius:2px;">Action: rounded-[2px]</span>
-          </div>
-        </div>
-
-        <div class="chamfer-demo-box" style="border-radius: 3px; background:#FFFFFF;">
-          <strong style="font-size: 9pt;">Line Weights & Elevation</strong>
-          <p style="font-size:8pt; margin:0;">
-            • <strong>Card Borders:</strong> <code>1.5px solid #ECECDC</code> (Sand stroke).<br>
-            • <strong>Step Dividers:</strong> <code>1px border-t border-border-subtle/55</code>.<br>
-            • <strong>Warm Shadow:</strong> <code>shadow-card</code> (<code>0 10px 24px rgba(115, 54, 53, 0.08)</code>). Faint terracotta tint lifts cards off background.
-          </p>
-        </div>
-      </div>
-
-      <div class="card" style="margin-top: 6px;">
-        <strong style="font-size: 8.5pt;">Chamfer Micro-Rules:</strong>
-        <p style="font-size: 8pt; margin: 4px 0 0 0;">
-          • Outer cards & panes: <code>rounded-[3px]</code> &nbsp;|&nbsp; Inner chips & status badges: <code>rounded-[2px]</code> &nbsp;|&nbsp; Skeleton bars: <code>rounded-[1px]</code>.<br>
-          • <em>Never use circular pills (<code>rounded-full</code>) or large radii (<code>12px+</code>).</em>
-        </p>
-      </div>
+      <div class="sub-heading" style="font-size: 11pt; margin-top: 26px;">Corner radii</div>
+      <ul class="bullet-list">
+        <li><strong>Cards:</strong> 3px radius, with a warm shadow: <code style="font-family: 'JetBrains Mono'; font-size: 8pt; color: #733635;">0 10px 24px rgba(115, 54, 53, 0.08)</code></li>
+        <li><strong>Checkboxes, buttons, map nodes, grid blocks:</strong> 2px radius.</li>
+        <li><strong>Skeleton and chart bars:</strong> 1px radius.</li>
+        <li><strong>Never use fully rounded pill shapes.</strong></li>
+      </ul>
     </div>
 
     <div class="page-footer">
-      <span>KEIZERSGRACHT MEDIA • STYLE GUIDE</span>
-      <span>PAGE 2 OF 3</span>
+      <span>KEIZERSGRACHT MEDIA | Illustration Design System v3.1</span>
+      <span>Page 3</span>
     </div>
   </div>
 
-
-  <!-- ================= PAGE 3 ================= -->
+  <!-- ==================== PAGE 4 ==================== -->
   <div class="sheet">
     <div class="sheet-content">
-      <div class="header-bar">
-        <div>
-          <div class="brand-eyebrow">Keizersgracht Media • Design System</div>
-          <div style="font-family:'Sintony', sans-serif; font-size:15pt; font-weight:700; color:#351E1C;">UI Primitives, Typography & Production Rules</div>
-        </div>
-        <div class="meta-tag">PAGE 3 OF 3</div>
+      <div class="section-heading" style="margin-top: 0;">
+        <span class="sec-num">04</span>
+        <span class="sec-title">ANIMATION AND TIMING</span>
       </div>
+      <p>
+        Animation is there to help the spectator follow the story. The timings further down come from the two examples and are only a starting point. For each new illustration, the question is whether a visitor can actually keep up.
+      </p>
 
-      <!-- Section 6 -->
-      <div class="section-title" style="margin-top: 0;">
-        <span class="section-num">6</span>
-        UI Skeleton Primitives & Abstract Components
-      </div>
-      <p>Rather than rendering realistic text fields, use abstract UI building blocks:</p>
+      <div class="sub-heading">What to check</div>
+      <ul class="bullet-list">
+        <li><strong>Can they follow the process?</strong> It should be clear what happens first, what it triggers, and where it ends up.</li>
+        <li><strong>Is there time to take it in?</strong> After something changes, give people a moment to look at each element before the next animation starts. More elements, text, or charts on screen means a longer pause.</li>
+        <li><strong>Does it guide the eye?</strong> Sequence the steps in reading or cause-and-effect order instead of changing everything at once, so attention moves in one direction.</li>
+        <li><strong>Is there a rest before it loops?</strong> Hold the finished state briefly before a new cycle begins, so the result can be read.</li>
+        <li><strong>Does it hold up cold?</strong> Watch it as a first-time visitor. If you lose track of what is happening, slow it down or simplify it.</li>
+        <li><strong>Does it handle clicks cleanly?</strong> Clicking any card or node should immediately jump to that state and smoothly restart the cycle. Avoid hover-pause locks that freeze the animation.</li>
+      </ul>
 
-      <div class="primitives-grid" style="margin-bottom: 12px;">
-        <div class="skeleton-bar-demo">
-          <div style="font-size: 8pt; font-family:'JetBrains Mono', monospace; font-weight:600; color:#733635; margin-bottom:4px;">DATA SKELETON BARS (&lt;Bar /&gt;)</div>
-          <div class="s-bar" style="width: 75%; background: #351E1C; height: 6px;"></div>
-          <div class="s-bar" style="width: 90%; background: #ECECDC; height: 4px;"></div>
-          <div class="s-bar" style="width: 55%; background: #ECECDC; height: 4px;"></div>
-          <div class="s-bar" style="width: 40%; background: #A0C9CB; height: 4px; margin-top:2px;"></div>
-          <div style="font-size: 7.5pt; color:#733635; margin-top: 4px;">6px Espresso (Title) • 4px Sand (Body) • 4px Aqua (AI state)</div>
-        </div>
+      <div class="sub-heading">Cycle length</div>
+      <p>
+        Set the length of a cycle per illustration, based on how much the spectator has to read and how many elements change. A single short line needs less time than a map with a popup and two charts. Both can be a repeating cycle, as long as the points above are met.
+      </p>
 
-        <div class="skeleton-bar-demo">
-          <div style="font-size: 8pt; font-family:'JetBrains Mono', monospace; font-weight:600; color:#733635; margin-bottom:4px;">STATUS BADGES (&lt;Badge /&gt;)</div>
-          <div style="display:flex; flex-wrap:wrap; gap:6px; align-items:center;">
-            <span class="badge-demo badge-coral">● READY TO SEND</span>
-            <span class="badge-demo badge-aqua">⚡ AI PARSING</span>
-            <span class="badge-demo badge-sand">★ VERIFIED</span>
-          </div>
-          <div style="font-size: 7.5pt; color:#733635; margin-top: 6px;">Semibold Poppins, uppercase, tracking-wider, micro-chamfer 2px.</div>
-        </div>
-      </div>
+      <div class="sub-heading">Timings used in the examples</div>
+      <div class="sub-caption">Use as a reference for pacing, not as a rule.</div>
 
-      <!-- Section 7 -->
-      <div class="section-title">
-        <span class="section-num">7</span>
-        Typography Hierarchy inside Diagrams
-      </div>
-      
-      <table class="type-table">
-        <thead>
-          <tr>
-            <th style="width: 25%;">Hierarchy Role</th>
-            <th style="width: 25%;">Font & Size</th>
-            <th style="width: 20%;">Color</th>
-            <th style="width: 30%;">Usage Example</th>
-          </tr>
-        </thead>
+      <table class="timing-table">
         <tbody>
           <tr>
-            <td><strong>Top Headline / Claim</strong></td>
-            <td><code>Sintony</code> 17px (bold)</td>
-            <td>Espresso (<code>#351E1C</code>)</td>
-            <td>"Drawings in. Price out."</td>
+            <td class="timing-label">Example A</td>
+            <td>
+              About 7.5s per cycle: card 1 changes at 0.0s, connector pulse at 0.9s, card 2 updates at 1.5s, second connector pulse at 2.4s, card 3 types its reply from 3.0s to 6.0s, then the action button pulses.
+            </td>
           </tr>
           <tr>
-            <td><strong>Step Node Titles</strong></td>
-            <td><code>Sintony</code> 13px–14px (bold)</td>
-            <td>Espresso (<code>#351E1C</code>)</td>
-            <td>"AI Complexity Analysis"</td>
-          </tr>
-          <tr>
-            <td><strong>Technical Captions</strong></td>
-            <td><code>Poppins</code> 11px–12px</td>
-            <td>Terracotta / Taupe</td>
-            <td>"Fixed rules • Almost immediately"</td>
-          </tr>
-          <tr>
-            <td><strong>Micro-Tags / Chips</strong></td>
-            <td><code>Poppins</code> 10px–11px (semi)</td>
-            <td>Terracotta (<code>#733635</code>)</td>
-            <td>"★ RECORD" / "● COMPLETED"</td>
+            <td class="timing-label">Example B</td>
+            <td>
+              One step every 6000ms, with already visited items staying marked so progress builds up.
+            </td>
           </tr>
         </tbody>
       </table>
-
-      <!-- Section 8 -->
-      <div class="section-title">
-        <span class="section-num">8</span>
-        Do’s and Don’ts Production Checklist
-      </div>
-      <div class="dos-donts-grid">
-        <div class="rule-card dos">
-          <div class="rule-card-title">✓ DO</div>
-          <ul>
-            <li><strong>Keep generous whitespace:</strong> Let the blueprint breathe with wide internal margins.</li>
-            <li><strong>3-Second Clarity:</strong> A viewer should understand input and output in under 3 seconds.</li>
-            <li><strong>Strict Coral Discipline:</strong> Reserve coral exclusively for final action / outcome.</li>
-            <li><strong>Architectural Chamfers:</strong> Always use <code>rounded-[2px]</code> or <code>rounded-[3px]</code>.</li>
-          </ul>
-        </div>
-
-        <div class="rule-card donts">
-          <div class="rule-card-title">✗ DON’T</div>
-          <ul>
-            <li><strong>No 3D or Isometric Art:</strong> Avoid bubbly cartoon characters or 3D plastic cubes.</li>
-            <li><strong>No Neon Gradients:</strong> Never introduce purple, bright indigo, or generic AI gradients.</li>
-            <li><strong>No Full Browser Dumps:</strong> Do not paste full screenshots; abstract the essential data.</li>
-            <li><strong>No Rounded-Full Pills:</strong> Steer clear of circular lozenges (16px+ radius).</li>
-          </ul>
-        </div>
-      </div>
     </div>
 
     <div class="page-footer">
-      <span>KEIZERSGRACHT MEDIA • STYLE GUIDE</span>
-      <span>PAGE 3 OF 3</span>
+      <span>KEIZERSGRACHT MEDIA | Illustration Design System v3.1</span>
+      <span>Page 4</span>
     </div>
   </div>
 
