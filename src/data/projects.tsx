@@ -19,9 +19,9 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: "admin-drafts",
-    eyebrow: "01 — Workflow automation",
+    eyebrow: "01 — Customer automation",
     eyebrowTone: "coral",
-    title: "Turning incoming messages into ready-to-send replies.",
+    title: "Turning customer messages into ready-to-send replies.",
     description:
       "We build custom AI agents for companies that automate their inbound client communications. Whether inquiries arrive via email, WhatsApp, or web forms, our agents handle the admin legwork—analyzing intent, cross-checking live schedules and pricing rules, and preparing accurate drafts for your team to review and send in one click.",
     descriptionClassName: "text-taupe",
@@ -36,7 +36,7 @@ export const projects: Project[] = [
   },
   {
     id: "clean-water",
-    eyebrow: "02 — Clean water",
+    eyebrow: "02 — Custom software development",
     eyebrowTone: "terracotta",
     title: "Measuring sanitation impact across rural Indonesia.",
     description:
@@ -53,7 +53,7 @@ export const projects: Project[] = [
   },
   {
     id: "price-tool",
-    eyebrow: "03 — Price tool",
+    eyebrow: "03 — Operations tooling",
     eyebrowTone: "terracotta",
     title: "Smarter pricing for a construction company.",
     description:

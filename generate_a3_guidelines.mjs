@@ -1,6 +1,6 @@
-const fs = require('fs');
-const path = require('path');
-const { execSync } = require('child_process');
+import fs from 'node:fs';
+import path from 'node:path';
+import { execSync } from 'node:child_process';
 
 const htmlContent = `<!DOCTYPE html>
 <html lang="en">
@@ -625,8 +625,8 @@ const htmlContent = `<!DOCTYPE html>
 </html>
 `;
 
-const htmlPath = path.join(__dirname, 'brand-system-a3-poster.html');
-const pdfPath = path.join(__dirname, 'Keizersgracht-Brand-System-Guidelines-A3.pdf');
+const htmlPath = path.join(import.meta.dirname, 'brand-system-a3-poster.html');
+const pdfPath = path.join(import.meta.dirname, 'Keizersgracht-Brand-System-Guidelines-A3.pdf');
 const downloadPath = path.join('C:\\Users\\dcvan\\Downloads', 'Keizersgracht_Visual_Identity_and_System_Guidelines_v1.0_A3.pdf');
 
 fs.writeFileSync(htmlPath, htmlContent, 'utf8');

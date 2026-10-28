@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/cn";
 
@@ -36,12 +37,12 @@ export function Navbar() {
         className="relative mx-auto flex h-full max-w-[1440px] items-center justify-between px-5 md:px-10 xl:px-16"
       >
         <a href="#top" className="flex items-center gap-3">
-          <span aria-hidden className="size-5 bg-coral opacity-90" />
+          <Image src="/assets/logo.svg" alt="" width={28} height={28} priority className="intro-nav-logo" />
           <span className="font-display text-[13px] font-bold tracking-brand text-espresso uppercase">
             Studio
           </span>
         </a>
-        <ul className="flex gap-5 sm:gap-10">
+        <ul className="intro-reveal flex gap-5 sm:gap-10">
           {links.map((link) => (
             <li key={link.href}>
               <a
