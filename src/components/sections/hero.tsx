@@ -5,11 +5,7 @@ import { TeamDots } from "@/components/ui/team-dots";
 import { LogoBanner } from "./logo-banner";
 
 const heroPhotos: Photo[] = [
-  { src: "/assets/hero-group-3340.jpg", alt: "Kilan and Cheremy at a café table" },
-  { src: "/assets/hero-group-3355.jpg", alt: "Kilan and Cheremy at a café table" },
-  { src: "/assets/hero-group-3356.jpg", alt: "Kilan and Cheremy at a café table" },
-  { src: "/assets/hero-group-3367.jpg", alt: "Kilan and Cheremy at a café table" },
-  { src: "/assets/hero-group-3375.jpg", alt: "Kilan and Cheremy at a café table" },
+  { src: "/assets/hero-group-3340-muted.jpg", alt: "Kilan and Cheremy at a café table" },
 ];
 
 export function Hero() {
