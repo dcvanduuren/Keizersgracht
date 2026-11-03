@@ -1,8 +1,16 @@
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/eyebrow";
+import { PhotoSlider, type Photo } from "@/components/ui/photo-slider";
 import { TeamDots } from "@/components/ui/team-dots";
 import { LogoBanner } from "./logo-banner";
+
+const heroPhotos: Photo[] = [
+  { src: "/assets/hero-group-3340.jpg", alt: "Kilan and Cheremy at a café table" },
+  { src: "/assets/hero-group-3355.jpg", alt: "Kilan and Cheremy at a café table" },
+  { src: "/assets/hero-group-3356.jpg", alt: "Kilan and Cheremy at a café table" },
+  { src: "/assets/hero-group-3367.jpg", alt: "Kilan and Cheremy at a café table" },
+  { src: "/assets/hero-group-3375.jpg", alt: "Kilan and Cheremy at a café table" },
+];
 
 export function Hero() {
   return (
@@ -35,16 +43,12 @@ export function Hero() {
           {/* Row 1 / Right: Photo */}
           <div className="lg:col-start-2 lg:row-start-1">
             <div className="relative aspect-[479/530] w-full overflow-hidden rounded-[3px] shadow-card">
-              <Image
-                src="/assets/hero-photo.png"
-                alt="Two people laughing over iced coffee at a café terrace"
-                fill
+              <PhotoSlider
+                photos={heroPhotos}
                 preload
                 sizes="(min-width: 1024px) 479px, (min-width: 768px) 70vw, 100vw"
-                className="object-cover opacity-[0.92]"
               />
-              <div aria-hidden className="absolute inset-0 bg-coral/3" />
-              <div aria-hidden className="absolute inset-0 rounded-[3px] border border-border-hairline" />
+              <div aria-hidden className="pointer-events-none absolute inset-0 rounded-[3px] border border-border-hairline" />
             </div>
           </div>
 
