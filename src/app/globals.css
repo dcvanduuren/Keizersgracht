@@ -17,7 +17,10 @@
   --color-terracotta-muted: rgba(115, 54, 53, 0.55);
   --color-taupe: #7B716A;
   --color-coral: #FF6037;
+  --color-coral-deep: #B34327;
   --color-coral-muted: rgba(255, 96, 55, 0.09);
+  --color-placeholder: #6F665F;
+  --color-border-input: #8C887F;
   --color-aqua: #A0C9CB;
   --color-aqua-muted: rgba(160, 201, 203, 0.33);
   --color-frosted-white: rgba(255, 255, 255, 0.8);
@@ -226,6 +229,49 @@ html {
 
 .intro-reveal {
   animation: intro-reveal 600ms cubic-bezier(0.2, 0.8, 0.2, 1) 1.3s both;
+}
+
+/* Mobile: halve every intro delay and duration so the splash resolves in ~0.9s
+ * instead of ~1.75s. The prefers-reduced-motion kill-switch below stays the
+ * single source of truth for disabling motion entirely. */
+@media (max-width: 47.9375rem) {
+  .intro-splash {
+    animation-duration: 275ms;
+    animation-delay: 600ms;
+  }
+
+  .intro-splash::before {
+    animation-duration: 250ms;
+    animation-delay: 600ms;
+  }
+
+  .intro-splash-logo {
+    animation-duration: 300ms;
+    animation-delay: 575ms;
+  }
+
+  .intro-frame {
+    animation-duration: 225ms;
+  }
+
+  .intro-sun {
+    animation-duration: 325ms;
+    animation-delay: 75ms;
+  }
+
+  .intro-paths {
+    animation-duration: 275ms;
+    animation-delay: 250ms;
+  }
+
+  .intro-nav-logo {
+    animation-delay: 875ms;
+  }
+
+  .intro-reveal {
+    animation-duration: 300ms;
+    animation-delay: 650ms;
+  }
 }
 
 @keyframes intro-frame-in {

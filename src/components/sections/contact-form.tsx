@@ -34,7 +34,7 @@ export function ContactForm() {
           autoComplete="email"
           placeholder="you@example.com"
           suppressHydrationWarning
-          className="w-full rounded-[3px] border border-border-subtle bg-canvas px-6 py-4 font-body text-body text-espresso placeholder:text-taupe focus-visible:border-espresso focus-visible:outline-none"
+          className="w-full rounded-[3px] border border-border-input bg-canvas px-6 py-4 font-body text-base text-espresso placeholder:text-placeholder focus-visible:border-espresso focus-visible:outline-none sm:text-body"
         />
       </div>
       <div className="flex flex-col gap-2">
@@ -47,7 +47,7 @@ export function ContactForm() {
           required
           placeholder="A quick note about the product, the problem, or the direction you're thinking about."
           suppressHydrationWarning
-          className="h-40 w-full resize-none rounded-[3px] border border-border-subtle bg-canvas px-5 py-4 font-body text-body-sm leading-[1.65] text-espresso placeholder:text-taupe focus-visible:border-espresso focus-visible:outline-none"
+          className="h-40 w-full resize-none rounded-[3px] border border-border-input bg-canvas px-5 py-4 font-body text-base leading-[1.65] text-espresso placeholder:text-placeholder focus-visible:border-espresso focus-visible:outline-none sm:text-body-sm"
         />
       </div>
       <Button type="submit" className="self-start">

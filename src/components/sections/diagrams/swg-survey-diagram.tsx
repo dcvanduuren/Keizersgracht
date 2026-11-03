@@ -387,7 +387,7 @@ function KampungMap({
         return (
           <g
             key={node.id}
-            className="cursor-pointer transition-transform duration-200"
+            className="cursor-pointer transition-transform duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#351E1C]"
             onClick={() => onSelectNode(idx)}
             role="button"
             tabIndex={0}
@@ -720,7 +720,10 @@ export function SwgSurveyDiagram() {
         <div className="flex flex-col items-center gap-2">
           <IntakeCard className="w-full max-w-[220px]" />
           <DownArrow />
-          <div className="origin-center scale-[0.85]">
+          {/* Layout-aware shrink below 380px viewports: `zoom` (unlike `scale`)
+              also shrinks the layout box, so the fixed 340px orb never
+              overflows the 320px content column. */}
+          <div className="origin-center [zoom:0.8] min-[380px]:[zoom:1]">
             <MapOrb activeNode={activeNode} onSelectNode={handleSelectNode} />
           </div>
           <DownArrow />

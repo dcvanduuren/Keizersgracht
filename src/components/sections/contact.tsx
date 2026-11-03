@@ -9,11 +9,11 @@ export function Contact() {
         <div className="flex flex-col gap-6">
           <Eyebrow tone="coral">Start the talk</Eyebrow>
           <SectionHeading>Tell us what you&apos;re looking to build.</SectionHeading>
-          <p className="font-body text-body leading-body text-terracotta">
+          <p className="font-body text-body leading-body text-pretty text-terracotta">
             Whether you have an initial spec ready or just a manual bottleneck you want automated, let us know
             where you&apos;re starting from. We&apos;ll read through your note and reply within one business day.
           </p>
-          <p className="font-body text-body-sm leading-[1.7] text-terracotta">
+          <p className="font-body text-body-sm leading-[1.7] text-pretty text-terracotta">
             You&apos;ll speak directly to us — no sales reps, account managers, or discovery fees.
           </p>
         </div>

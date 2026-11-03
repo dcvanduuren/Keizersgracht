@@ -10,13 +10,13 @@ const variants = {
   /** Category tag on canvas with coral outline (Project 03). */
   tagCoral: "border border-coral/33 bg-canvas px-[9px] py-[3px] text-badge text-terracotta",
   /** Filled status badges inside the diagrams. */
-  solidCoral: "bg-coral px-2.5 py-1 text-label text-canvas opacity-90",
+  solidCoral: "bg-coral px-2.5 py-1 text-label text-espresso opacity-90",
   solidAqua: "bg-aqua px-2.5 py-1 text-label text-espresso opacity-90",
   /** Pills with an icon (rating pill / chip). */
   chipAqua: "gap-2 bg-aqua px-2.5 py-1.5 text-label text-terracotta",
   chipCanvas: "gap-2 bg-canvas px-2.5 py-1.5 text-label text-terracotta",
   /** Aqua pill with icon (LinkedIn). */
-  link: "gap-1.5 bg-aqua px-2.5 py-1 text-micro uppercase tracking-chip-caps text-terracotta transition-colors hover:bg-aqua/80",
+  link: "gap-1.5 bg-aqua px-2.5 py-1 text-caption uppercase tracking-chip-caps text-terracotta transition-colors hover:bg-aqua/80",
 } as const;
 
 export type BadgeVariant = keyof typeof variants;

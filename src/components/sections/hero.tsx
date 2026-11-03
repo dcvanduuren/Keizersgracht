@@ -22,10 +22,10 @@ export function Hero() {
             <Eyebrow wide className="hidden lg:block">
               AI · Automations · Software
             </Eyebrow>
-            <h1 className="order-2 lg:order-none font-display text-[length:min(44px,calc((100vw_-_40px)*0.111))] leading-hero font-bold tracking-tight-hero text-espresso sm:text-[60px] lg:text-[clamp(52px,5.56vw,80px)]">
+            <h1 className="order-2 lg:order-none font-display text-[length:min(44px,calc((100vw_-_40px)*0.111))] leading-hero font-bold tracking-tight-hero text-balance text-espresso sm:text-[60px] lg:text-[clamp(52px,5.56vw,80px)]">
               The tech company built for small businesses.
             </h1>
-            <p className="order-6 mt-8 lg:order-none lg:mt-0 font-body text-[19px] leading-[1.55] text-terracotta sm:text-[20px]">
+            <p className="order-6 mt-8 lg:order-none lg:mt-0 font-body text-[19px] leading-[1.55] text-terracotta text-pretty sm:text-[20px]">
               Custom software, automations, and AI, built around how your team already operates.
             </p>
           </div>
@@ -36,7 +36,7 @@ export function Hero() {
               A team of two people means direct communication and real flexibility.
             </TeamDots>
             <div className="order-4 mt-6 flex h-[52px] items-center lg:order-none lg:mt-0">
-              <Button href="#contact">Grab a coffee with us</Button>
+              <Button href="#contact" className="w-full sm:w-auto">Grab a coffee with us</Button>
             </div>
           </div>
 

@@ -33,7 +33,7 @@ function Track({ clone = false }: { clone?: boolean }) {
             rel="noopener noreferrer"
             tabIndex={clone || idx >= logos.length ? -1 : undefined}
             aria-hidden={!clone && idx >= logos.length ? true : undefined}
-            className="relative block opacity-55 transition-opacity duration-300 hover:opacity-100 focus-visible:opacity-100"
+            className="relative block opacity-55 transition-[opacity] duration-300 hover:opacity-100 focus-visible:opacity-100 after:absolute after:-inset-4 after:content-['']"
             style={{ aspectRatio: `${logo.w} / ${logo.h}` }}
           >
             <Image

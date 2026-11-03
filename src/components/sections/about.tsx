@@ -1,3 +1,6 @@
+"use client";
+
+import { useId, useState } from "react";
 import { Asset } from "@/components/ui/asset";
 import { Badge } from "@/components/ui/badge";
 import { Eyebrow } from "@/components/ui/eyebrow";
@@ -5,13 +8,14 @@ import { PhotoSlider } from "@/components/ui/photo-slider";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { TeamDots } from "@/components/ui/team-dots";
 import { team, type TeamMember } from "@/data/team";
+import { cn } from "@/lib/cn";
 
 function TeamCard({ member }: { member: TeamMember }) {
+  const [open, setOpen] = useState(false);
+  const bioId = useId();
+
   return (
-    <article
-      tabIndex={0}
-      className="group relative flex h-[460px] flex-col justify-end overflow-hidden rounded-[3px] bg-sand shadow-card transition-transform duration-300 hover:-translate-y-0.5 focus-visible:-translate-y-0.5 has-focus-visible:-translate-y-0.5 focus:outline-none"
-    >
+    <article className="group relative flex h-[460px] flex-col justify-end overflow-hidden rounded-[3px] bg-sand shadow-card transition-transform duration-300 [@media(hover:hover)]:hover:-translate-y-0.5 has-focus-visible:-translate-y-0.5">
       {/* Fills the area above the collapsed text sheet so the photo's centre (the eyes) stays visible */}
       <div className="absolute inset-x-0 top-0 bottom-24 overflow-hidden bg-sand">
         <PhotoSlider
@@ -22,15 +26,34 @@ function TeamCard({ member }: { member: TeamMember }) {
       </div>
 
       {/* Floating text sheet at bottom: moves up on hover */}
-      <div className="relative z-10 flex flex-col justify-between bg-sand p-5 shadow-[0_-4px_16px_rgba(53,30,28,0.04)] transition-transform duration-300 ease-out">
+      <div className="relative z-10 flex flex-col justify-between bg-sand p-5 shadow-[0_-4px_16px_rgba(53,30,28,0.04)]">
         <div className="flex flex-col gap-2">
           <div className="flex items-center justify-between gap-2">
-            <h3 className="font-display text-[19px] font-bold tracking-name text-espresso">{member.name}</h3>
+            <h3 className="font-display text-[19px] font-bold tracking-name text-espresso">
+              <button
+                type="button"
+                onClick={() => setOpen((v) => !v)}
+                aria-expanded={open}
+                aria-controls={bioId}
+                className="flex min-h-[44px] w-full items-center justify-between gap-2 text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-espresso"
+              >
+                <span>{member.name}</span>
+                <span
+                  aria-hidden
+                  className={cn(
+                    "inline-block font-body text-[14px] leading-none text-terracotta transition-transform duration-300",
+                    open && "rotate-180"
+                  )}
+                >
+                  ↓
+                </span>
+              </button>
+            </h3>
             <a
               href={member.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex transition-transform hover:scale-105"
+              className="inline-flex shrink-0 transition-transform hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-espresso"
               aria-label={`${member.name}'s LinkedIn profile`}
             >
               <Badge variant="link">
@@ -41,14 +64,22 @@ function TeamCard({ member }: { member: TeamMember }) {
           </div>
           <p
             className={`font-body text-badge font-semibold tracking-badge-caps uppercase ${
-              member.disciplineTone === "coral" ? "text-coral" : "text-terracotta"
+              member.disciplineTone === "coral" ? "text-coral-deep" : "text-terracotta"
             }`}
           >
             {member.discipline}
           </p>
 
-          {/* Body text expands on hover */}
-          <div className="grid grid-rows-[0fr] opacity-0 transition-all duration-300 ease-out group-hover:grid-rows-[1fr] group-hover:opacity-100 group-focus-visible:grid-rows-[1fr] group-focus-visible:opacity-100 group-has-focus-visible:grid-rows-[1fr] group-has-focus-visible:opacity-100">
+          {/* Bio expands on tap (toggle); hover reveal kept for hover-capable pointers only */}
+          <div
+            id={bioId}
+            className={cn(
+              "grid transition-[grid-template-rows,opacity] duration-300 ease-out",
+              open
+                ? "grid-rows-[1fr] opacity-100"
+                : "grid-rows-[0fr] opacity-0 [@media(hover:hover)]:group-hover:grid-rows-[1fr] [@media(hover:hover)]:group-hover:opacity-100"
+            )}
+          >
             <div className="overflow-hidden">
               <p className="pt-2 font-body text-body-sm leading-[1.65] text-terracotta">{member.bio}</p>
             </div>
@@ -66,7 +97,7 @@ export function About() {
         <div className="flex flex-col gap-6">
           <Eyebrow tone="coral">About us</Eyebrow>
           <SectionHeading>Based in Amsterdam. Working everywhere.</SectionHeading>
-          <p className="font-body text-body leading-body text-terracotta">
+          <p className="font-body text-body leading-body text-pretty text-terracotta">
             We are engineers and researchers based in Amsterdam. No account managers, no layers, and no junior
             handoffs — you collaborate directly with the two people designing the system and writing the code.
           </p>

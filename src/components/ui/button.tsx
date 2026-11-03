@@ -2,7 +2,7 @@ import type { ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/cn";
 
 const base =
-  "inline-flex items-center justify-center gap-2.5 rounded-[3px] bg-coral px-7 py-4 font-body text-body font-semibold tracking-button text-espresso opacity-90 transition-opacity hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-espresso";
+  "inline-flex items-center justify-center gap-2.5 rounded-[3px] bg-coral px-7 py-4 font-body text-body font-semibold tracking-button text-espresso opacity-90 transition-[scale,opacity] duration-150 ease-out enabled:active:scale-[0.96] hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-espresso [-webkit-tap-highlight-color:transparent]";
 
 type AnchorProps = ComponentPropsWithoutRef<"a"> & { href: string };
 type NativeButtonProps = ComponentPropsWithoutRef<"button"> & { href?: undefined };

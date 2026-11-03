@@ -17,7 +17,7 @@ export function HowWeWork() {
         <div className="order-1 flex flex-col gap-6 lg:order-2 lg:sticky lg:top-28 lg:self-start">
           <Eyebrow tone="coral">Why we started</Eyebrow>
           <SectionHeading>Software built around your team, not the other way around.</SectionHeading>
-          <p className="font-body text-body leading-body text-terracotta">
+          <p className="font-body text-body leading-body text-pretty text-terracotta">
             Traditional consultancies sell long slide decks and six-month discovery phases. We build practical
             software and data tools directly with the people using them — fast, focused, and without the corporate
             overhead.
@@ -40,7 +40,7 @@ export function HowWeWork() {
               className="pointer-events-none absolute left-[6px] top-[34px] sm:top-[38px] bottom-[34px] sm:bottom-[38px] w-[1.5px] bg-espresso/15"
             >
               <div
-                className="w-full bg-coral transition-all duration-500 ease-in-out"
+                className="w-full bg-coral transition-[height] duration-500 ease-in-out"
                 style={{
                   height: `${(Math.max(0, activeIndex) / (principles.length - 1)) * 100}%`,
                 }}
@@ -61,7 +61,7 @@ export function HowWeWork() {
                   <span
                     aria-hidden
                     className={cn(
-                      "absolute left-[6.75px] top-[34px] sm:top-[38px] -translate-x-1/2 -translate-y-1/2 rounded-[2px] transition-all duration-300",
+                      "absolute left-[6.75px] top-[34px] sm:top-[38px] -translate-x-1/2 -translate-y-1/2 rounded-[2px] transition-[width,height,translate,background-color] duration-300",
                       isActive
                         ? "size-2.5 bg-coral"
                         : isPast
@@ -75,7 +75,7 @@ export function HowWeWork() {
                     type="button"
                     onClick={() => setActiveStep(principle.number)}
                     aria-expanded={isActive}
-                    className="flex w-full items-start justify-between gap-3 text-left outline-none focus-visible:ring-2 focus-visible:ring-coral focus-visible:ring-offset-2"
+                    className="flex min-h-[44px] w-full items-center justify-between gap-3 text-left outline-none focus-visible:ring-2 focus-visible:ring-espresso focus-visible:ring-offset-2"
                   >
                     <div className="flex flex-wrap items-baseline gap-2.5 sm:gap-3.5">
                       {/* Typographic numeral */}
@@ -83,7 +83,7 @@ export function HowWeWork() {
                         className={cn(
                           "font-display text-[15px] font-bold tracking-brand transition-colors duration-200",
                           isActive
-                            ? "text-coral"
+                            ? "text-coral-deep"
                             : isPast
                             ? "text-terracotta"
                             : "text-terracotta/60 group-hover:text-espresso"
@@ -104,7 +104,7 @@ export function HowWeWork() {
                     <div className="flex shrink-0 items-center gap-2 pt-0.5">
                       <span
                         className={cn(
-                          "rounded-[2px] px-2.5 py-0.5 font-body text-micro font-semibold uppercase tracking-wider transition-colors",
+                          "rounded-[2px] px-2.5 py-0.5 font-body text-caption font-semibold uppercase tracking-wider transition-colors",
                           isActive
                             ? "bg-sand font-bold text-espresso"
                             : "bg-sand/60 text-terracotta group-hover:bg-sand group-hover:text-espresso"
@@ -116,7 +116,7 @@ export function HowWeWork() {
                         aria-hidden
                         className={cn(
                           "inline-block font-mono text-base font-light leading-none transition-transform duration-200",
-                          isActive ? "rotate-45 text-coral" : "text-terracotta/40 group-hover:text-espresso"
+                          isActive ? "rotate-45 text-coral-deep" : "text-terracotta/40 group-hover:text-espresso"
                         )}
                       >
                         +
@@ -127,12 +127,12 @@ export function HowWeWork() {
                   {/* Collapsible Content: Expands naturally without any box/bubble */}
                   <div
                     className={cn(
-                      "grid transition-all duration-300 ease-in-out",
+                      "grid transition-[grid-template-rows,opacity] duration-300 ease-in-out",
                       isActive ? "grid-rows-[1fr] opacity-100 pt-3.5 pb-1" : "grid-rows-[0fr] opacity-0"
                     )}
                   >
                     <div className="overflow-hidden pl-7 sm:pl-8">
-                      <p className="max-w-[640px] font-body text-body-sm leading-[1.75] text-terracotta">
+                      <p className="max-w-[640px] font-body text-body-sm leading-[1.75] text-pretty text-terracotta">
                         {principle.body}
                       </p>
 
@@ -144,7 +144,7 @@ export function HowWeWork() {
                             e.stopPropagation();
                             setActiveStep(nextPrinciple.number);
                           }}
-                          className="mt-4 inline-flex items-center gap-1.5 font-body text-label font-bold tracking-button text-coral uppercase transition-all hover:translate-y-0.5 hover:text-espresso"
+                          className="mt-4 inline-flex min-h-[44px] items-center gap-1.5 font-body text-label font-bold tracking-button text-coral-deep uppercase transition-[translate,color] hover:translate-y-0.5 hover:text-espresso"
                         >
                           Continue to Step {nextPrinciple.number}: {nextPrinciple.title}
                           <span aria-hidden>↓</span>

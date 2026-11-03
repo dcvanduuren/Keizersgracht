@@ -47,7 +47,7 @@ export function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="font-body text-label tracking-nav-caps text-terracotta uppercase transition-colors hover:text-coral"
+                className="inline-block px-3 py-4 font-body text-label tracking-nav-caps text-terracotta uppercase transition-colors hover:text-coral"
               >
                 {link.label}
               </a>

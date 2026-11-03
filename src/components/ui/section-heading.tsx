@@ -15,7 +15,7 @@ export function SectionHeading({
     <h2
       id={id}
       className={cn(
-        "font-display text-[30px] leading-h1 font-bold tracking-tight-h1 text-espresso sm:text-h1",
+        "font-display text-[30px] leading-h1 font-bold tracking-tight-h1 text-balance text-espresso sm:text-h1",
         className,
       )}
     >

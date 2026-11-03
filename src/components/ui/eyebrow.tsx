@@ -19,7 +19,7 @@ export function Eyebrow({
       className={cn(
         "font-body text-label font-semibold uppercase",
         wide ? "tracking-wide-caps" : "tracking-eyebrow",
-        tone === "coral" ? "text-coral" : "text-terracotta",
+        tone === "coral" ? "text-coral-deep" : "text-terracotta",
         className,
       )}
     >

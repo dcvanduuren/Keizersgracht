@@ -138,7 +138,10 @@ function CompactRequestCard({
           onToggle();
         }
       }}
-      className={cn("cursor-pointer outline-none [perspective:800px]", className)}
+      className={cn(
+        "cursor-pointer [perspective:800px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-espresso",
+        className
+      )}
       style={{ width: 145, height: 156 }}
     >
       <div
@@ -225,7 +228,7 @@ function CompactRoutingCard({
               type="button"
               onClick={() => onSelect(r.mode)}
               className={cn(
-                "flex items-center gap-2 rounded-[2px] px-2 py-1.5 text-left outline-none transition-all duration-300",
+                "flex items-center gap-2 rounded-[2px] px-2 py-1.5 text-left transition-[border-color,background-color,opacity] duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-espresso",
                 isActive
                   ? "border border-[#A0C9CB] bg-[#A0C9CB]/25 opacity-100 shadow-sm"
                   : "border border-transparent opacity-45 hover:opacity-75",
@@ -234,7 +237,7 @@ function CompactRoutingCard({
               {/* 10x10px Checkbox */}
               <span
                 className={cn(
-                  "flex h-2.5 w-2.5 shrink-0 items-center justify-center rounded-[2px] border transition-all duration-200",
+                  "flex h-2.5 w-2.5 shrink-0 items-center justify-center rounded-[2px] border transition-colors duration-200",
                   isActive
                     ? "border-[#351E1C] bg-[#351E1C]"
                     : "border-[#ECECDC] bg-[#ECECDC]",
@@ -269,9 +272,9 @@ function CompactRoutingCard({
 /* ------------------------------------------------------------------ */
 
 const DRAFT_REPLIES = [
-  "Hi there, based on your project specs, the estimated price comes to...",
-  "Hi there, checking our schedule, we have spots available for you on...",
-  "Hi there, reviewing your project details, our onboarding outline is...",
+  "Hi there, based on your project specs, the estimated price comes to…",
+  "Hi there, checking our schedule, we have spots available for you on…",
+  "Hi there, reviewing your project details, our onboarding outline is…",
 ] as const;
 
 function CompactDraftCard({
@@ -347,7 +350,7 @@ function CompactDraftCard({
         ) : (
           <div className="flex h-full items-center gap-1.5 py-1 text-[#733635]/70">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#733635]/50 animate-pulse" />
-            <span className="font-body text-[10px] italic">Awaiting AI routing...</span>
+            <span className="font-body text-[10px] italic">Awaiting AI routing…</span>
           </div>
         )}
       </div>
