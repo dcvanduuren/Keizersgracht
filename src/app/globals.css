@@ -162,3 +162,100 @@ html {
     animation: none;
   }
 }
+
+/* Warranty diagram (03): ticket pop, stack drop, connector pulses, submit badge */
+@keyframes ticket-pop {
+  0% {
+    transform: translate(-2px, -8px) rotate(-1deg) scale(0.97);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes stack-drop {
+  0% {
+    transform: translateY(-18px);
+    opacity: 0;
+  }
+  65% {
+    transform: translateY(2px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-x {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  15%,
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(52px);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-y {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  15%,
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(32px);
+    opacity: 0;
+  }
+}
+
+@keyframes badge-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.08);
+  }
+}
+
+.anim-ticket-pop {
+  animation: ticket-pop 320ms cubic-bezier(0.3, 0.7, 0.2, 1) both;
+}
+
+.anim-stack-drop {
+  animation: stack-drop 480ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.anim-pulse-x {
+  animation: pulse-x 380ms ease-in-out both;
+}
+
+.anim-pulse-y {
+  animation: pulse-y 380ms ease-in-out both;
+}
+
+.anim-badge-pulse {
+  animation: badge-pulse 450ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-ticket-pop,
+  .anim-stack-drop,
+  .anim-pulse-x,
+  .anim-pulse-y,
+  .anim-badge-pulse {
+    animation: none;
+  }
+}

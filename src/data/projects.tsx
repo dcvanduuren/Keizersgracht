@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { AdminIntakeDiagram } from "@/components/sections/diagrams/admin-intake-diagram";
 import { SwgSurveyDiagram } from "@/components/sections/diagrams/swg-survey-diagram";
-import { PriceToolDiagram } from "@/components/sections/diagrams/price-tool-diagram";
+import { WarrantyClaimsDiagram } from "@/components/sections/diagrams/warranty-claims-diagram";
 import type { ReactNode } from "react";
 
 export type Project = {
@@ -53,11 +53,11 @@ export const projects: Project[] = [
   },
   {
     id: "price-tool",
-    eyebrow: "03 — Price tool",
+    eyebrow: "03 — Process automation",
     eyebrowTone: "terracotta",
-    title: "Smarter pricing for a construction company.",
+    title: "Eliminating manual warranty forms for e-bike workshops.",
     description:
-      "A data-driven price calculation tool that helps project managers quote with confidence.",
+      "When suppliers lack an API, mechanics and admin staff end up spending hours copy-pasting repair logs into external brand portals to order replacement parts and claim warranty payouts. For Just Ride On, we automated the entire form-filling workflow—turning completed workshop tickets into submitted supplier claims and reimbursements automatically.",
     descriptionClassName: "text-terracotta",
     gradientClassName: "bg-gradient-stone",
     tags: (
@@ -66,6 +66,6 @@ export const projects: Project[] = [
         <Badge variant="tagSand">Dev</Badge>
       </>
     ),
-    diagram: <PriceToolDiagram />,
+    diagram: <WarrantyClaimsDiagram />,
   },
 ];
