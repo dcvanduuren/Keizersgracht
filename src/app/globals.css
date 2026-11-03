@@ -157,9 +157,130 @@ html {
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .animate-marquee {
-    animation: none;
+/*
+ * Intro splash (~1.85s): the logo builds at 224px in the centre of the screen, then flies to the
+ * navbar logo slot and scales to 28px (224 × 0.125) so the hand-off is pixel-exact.
+ * --intro-pad must match the navbar's px-5 / md:px-10 / xl:px-16 and its 1440px max width.
+ */
+.intro-splash {
+  --intro-pad: 20px;
+  --intro-x: calc(max(0px, (100vw - 1440px) / 2) + var(--intro-pad));
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  animation: intro-splash-out 550ms cubic-bezier(0.4, 0, 0.2, 1) 1.2s both;
+}
+
+.intro-splash::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-canvas);
+  animation: intro-fade-out 500ms cubic-bezier(0.4, 0, 0.2, 1) 1.2s both;
+}
+
+.intro-splash-logo {
+  position: absolute;
+  left: calc(max(0px, (100% - 1440px) / 2) + var(--intro-pad) + 14px - 112px);
+  top: calc(var(--spacing-nav-h, 72px) / 2 - 112px);
+  width: 224px;
+  height: 224px;
+  animation: intro-fly 600ms cubic-bezier(0.7, 0, 0.2, 1) 1.15s both;
+}
+
+@media (min-width: 48rem) {
+  .intro-splash {
+    --intro-pad: 40px;
+  }
+}
+
+@media (min-width: 80rem) {
+  .intro-splash {
+    --intro-pad: 64px;
+  }
+}
+
+.intro-frame,
+.intro-sun,
+.intro-paths {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.intro-frame {
+  animation: intro-frame-in 450ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.intro-sun {
+  animation: intro-sun-rise 650ms cubic-bezier(0.2, 0.8, 0.2, 1) 150ms both;
+}
+
+.intro-paths {
+  animation: intro-paths-draw 550ms cubic-bezier(0.6, 0, 0.3, 1) 500ms both;
+}
+
+.intro-nav-logo {
+  animation: intro-appear 0s linear 1.75s both;
+}
+
+.intro-reveal {
+  animation: intro-reveal 600ms cubic-bezier(0.2, 0.8, 0.2, 1) 1.3s both;
+}
+
+@keyframes intro-frame-in {
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+}
+
+@keyframes intro-sun-rise {
+  from {
+    transform: translateY(60px);
+  }
+}
+
+@keyframes intro-paths-draw {
+  from {
+    clip-path: inset(-8px 100% -8px -8px);
+  }
+  to {
+    clip-path: inset(-8px -8px -8px -8px);
+  }
+}
+
+@keyframes intro-fly {
+  from {
+    transform: translate(calc(50vw - var(--intro-x) - 14px), calc(50dvh - var(--spacing-nav-h, 72px) / 2)) scale(1);
+  }
+  to {
+    transform: scale(0.125);
+  }
+}
+
+@keyframes intro-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes intro-splash-out {
+  to {
+    visibility: hidden;
+  }
+}
+
+@keyframes intro-appear {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes intro-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
   }
 }
 
@@ -251,6 +372,19 @@ html {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+
+  .intro-splash {
+    display: none;
+  }
+
+  .intro-nav-logo,
+  .intro-reveal {
+    animation: none;
+  }
+
   .anim-ticket-pop,
   .anim-stack-drop,
   .anim-pulse-x,

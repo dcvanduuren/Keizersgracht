@@ -17,8 +17,8 @@ const sintony = Sintony({
 });
 
 export const metadata: Metadata = {
-  title: "Studio — Data · Development · AI",
-  description: "AI, software and data, built around how your team already operates.",
+  title: "Studio - AI · Automations · Software",
+  description: "Custom software, automations, and AI, built around how your team already operates.",
 };
 
 export default function RootLayout({

@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { Asset } from "@/components/ui/asset";
 import { Badge } from "@/components/ui/badge";
 import { Eyebrow } from "@/components/ui/eyebrow";
+import { PhotoSlider } from "@/components/ui/photo-slider";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { TeamDots } from "@/components/ui/team-dots";
 import { team, type TeamMember } from "@/data/team";
@@ -10,16 +10,14 @@ function TeamCard({ member }: { member: TeamMember }) {
   return (
     <article
       tabIndex={0}
-      className="group relative flex h-[460px] flex-col justify-end overflow-hidden rounded-[3px] bg-sand shadow-card transition-transform duration-300 hover:-translate-y-0.5 focus-within:-translate-y-0.5 focus:outline-none"
+      className="group relative flex h-[460px] flex-col justify-end overflow-hidden rounded-[3px] bg-sand shadow-card transition-transform duration-300 hover:-translate-y-0.5 focus-visible:-translate-y-0.5 has-focus-visible:-translate-y-0.5 focus:outline-none"
     >
-      {/* Full-bleed portrait photo */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden bg-sand">
-        <Image
-          src={member.photo}
-          alt={member.photoAlt}
-          fill
+      {/* Fills the area above the collapsed text sheet so the photo's centre (the eyes) stays visible */}
+      <div className="absolute inset-x-0 top-0 bottom-24 overflow-hidden bg-sand">
+        <PhotoSlider
+          photos={member.photos}
           sizes="(min-width: 1024px) 340px, (min-width: 640px) 50vw, 100vw"
-          className="object-cover object-top"
+          controlsClassName="bottom-28"
         />
       </div>
 
@@ -50,7 +48,7 @@ function TeamCard({ member }: { member: TeamMember }) {
           </p>
 
           {/* Body text expands on hover */}
-          <div className="grid grid-rows-[0fr] opacity-0 transition-all duration-300 ease-out group-hover:grid-rows-[1fr] group-hover:opacity-100 group-focus-within:grid-rows-[1fr] group-focus-within:opacity-100">
+          <div className="grid grid-rows-[0fr] opacity-0 transition-all duration-300 ease-out group-hover:grid-rows-[1fr] group-hover:opacity-100 group-focus-visible:grid-rows-[1fr] group-focus-visible:opacity-100 group-has-focus-visible:grid-rows-[1fr] group-has-focus-visible:opacity-100">
             <div className="overflow-hidden">
               <p className="pt-2 font-body text-body-sm leading-[1.65] text-terracotta">{member.bio}</p>
             </div>

@@ -1,6 +1,6 @@
-const fs = require('fs');
-const path = require('path');
-const { execSync } = require('child_process');
+import fs from 'node:fs';
+import path from 'node:path';
+import { execSync } from 'node:child_process';
 
 const htmlContent = `<!DOCTYPE html>
 <html lang="en">
@@ -600,8 +600,8 @@ const htmlContent = `<!DOCTYPE html>
 </html>
 `;
 
-const htmlPath = path.join(__dirname, 'style-guide-illustrations.html');
-const pdfPath = path.join(__dirname, 'Keizersgracht-Illustration-Design-Guidelines.pdf');
+const htmlPath = path.join(import.meta.dirname, 'style-guide-illustrations.html');
+const pdfPath = path.join(import.meta.dirname, 'Keizersgracht-Illustration-Design-Guidelines.pdf');
 const downloadPath1 = path.join('C:\\Users\\dcvan\\Downloads', 'Keizersgracht_Illustration_Design_System_v3.1_clean.pdf');
 const downloadPath2 = path.join('C:\\Users\\dcvan\\Downloads', 'Keizersgracht Illustration Design System v3.1.pdf');
 
