@@ -5,7 +5,7 @@ import { TeamDots } from "@/components/ui/team-dots";
 import { LogoBanner } from "./logo-banner";
 
 const heroPhotos: Photo[] = [
-  { src: "/assets/hero-group-3340-muted.jpg", alt: "Kilan and Cheremy at a café table" },
+  { src: "/assets/hero-group-3375-muted.jpg", alt: "Kilan and Cheremy at a café table" },
 ];
 
 export function Hero() {
@@ -42,13 +42,13 @@ export function Hero() {
 
           {/* Row 1 / Right: Photo */}
           <div className="order-3 mt-8 lg:col-start-2 lg:row-start-1 lg:mt-0">
-            {/* Below lg the photo starts at the window frame: its top 78 of 1106 px are cropped off. */}
-            <div className="relative aspect-[1000/1028] w-full overflow-hidden rounded-[3px] shadow-card lg:aspect-[479/530]">
-              <div className="absolute inset-x-0 top-[-7.59%] bottom-0 lg:top-0">
+            {/* Slightly wider frame fitted for R0003375 so both heads stay centered and right arm is not clipped */}
+            <div className="relative aspect-[1200/1230] w-full overflow-hidden rounded-[3px] shadow-card lg:aspect-[517/530]">
+              <div className="absolute inset-0">
                 <PhotoSlider
                   photos={heroPhotos}
                   preload
-                  sizes="(min-width: 1024px) 479px, (min-width: 768px) 70vw, 100vw"
+                  sizes="(min-width: 1024px) 517px, (min-width: 768px) 70vw, 100vw"
                 />
               </div>
               <div aria-hidden className="pointer-events-none absolute inset-0 rounded-[3px] border border-border-hairline" />
